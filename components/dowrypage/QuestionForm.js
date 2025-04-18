@@ -106,7 +106,7 @@ export default function QuestionForm() {
       {response ? (
         <DowryCard clearResponse={handleResponse} name={formData.name} response={response} />
       ) : (
-        <form onSubmit={handleSubmit} className="grid px-1.5 grid-cols-1 md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="grid text-black px-1.5 grid-cols-1 md:grid-cols-2 gap-6">
           {[
             { name: 'name', label: '  Your Name', type: 'text' },
             { name: 'education', label: '  Education', type: 'select', options: ['High School', 'Bachelor’s', 'Master’s', 'PhD'] },
