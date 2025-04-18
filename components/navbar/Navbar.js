@@ -1,9 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import TrialInitializer from '@/components/TrialInitializer';
+
 import Link from 'next/link'; // Use Link for internal routing
 import Image from 'next/image';
 import Logo from '@/public/preview.png'
+import DowryButton from './DowryButton';
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -21,7 +24,9 @@ function Navbar() {
         height={40}
         />
       </div>
-
+<div>
+<TrialInitializer> <DowryButton/></TrialInitializer>
+  </div>
       {/* Desktop Nav */}
       <div className='hidden md:flex space-x-6'>
         <Link href='/' className='text-lg text-pink-600 hover:text-pink-800'>

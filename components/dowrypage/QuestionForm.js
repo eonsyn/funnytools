@@ -3,7 +3,13 @@ import { FaArrowLeft } from 'react-icons/fa';
 import React, { useState } from 'react';
 import DowryCard from './DowryCard';
 import DowryCardSkeleton from './DowryCardSkeleton';
+import { useDispatch, useSelector } from 'react-redux'; 
+import { decrementTrial, addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
+
 export default function QuestionForm() {
+  const dispatch = useDispatch();
+  const trial = useSelector(useTrialState);
+   
   const [formData, setFormData] = useState({
     name: '',
     education: '',
@@ -17,8 +23,16 @@ export default function QuestionForm() {
     expectations: '',
   });
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
+  const handleUseTrial = () => {
+    if (trial > 0) {
+      dispatch(decrementTrial());
+       
+    } else {
+      alert('Insufficient balance. Click button regain access.');
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,6 +58,7 @@ export default function QuestionForm() {
       alert('Something went wrong! 😢');
     } finally {
       setLoading(false);
+      handleUseTrial();
     }
   };
 
@@ -146,13 +161,20 @@ export default function QuestionForm() {
           </div>
 
           <div className="md:col-span-2 text-center">
-            <button
-              type="submit"
-              className="bg-pink-600 hover:bg-pink-700 text-white text-lg px-8 py-3 rounded-xl"
-              disabled={loading}
-            >
-              {loading ? 'Calculating...' : '  Calculate Dowry'}
-            </button>
+          <button
+  type="submit"
+  className={`bg-pink-600 hover:bg-pink-700 text-white text-lg px-8 py-3 rounded-xl transition-all duration-300 ${
+    loading || trial === 0 ? 'opacity-60 cursor-not-allowed' : ''
+  }`}
+  disabled={loading || trial === 0}
+>
+  {loading
+    ? 'Calculating...'
+    : trial > 0
+    ? `—1 Trial${trial > 1 ? 's' : ''}    Calculate Dowry`
+    : 'Insufficient Balance'}
+</button>
+
           </div>
         </form>
       )}

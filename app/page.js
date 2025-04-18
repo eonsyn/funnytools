@@ -1,6 +1,6 @@
  
 import React  from 'react' 
- import LandingPage from '@/components/dowrypage/LandingPage';
+import LandingPage from '@/components/dowrypage/LandingPage';
 export const metadata = {
   title: "Dowry Calculator | A Satirical Tool to End a Serious Problem",
   description:
@@ -44,7 +44,10 @@ export const metadata = {
 function page() {
  
   return (
-    <LandingPage/>
+     
+      <LandingPage/>
+     
+    
   )
 }
 
