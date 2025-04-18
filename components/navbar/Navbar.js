@@ -1,72 +1,75 @@
-"use client";
+'use client';
+
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import TrialInitializer from '@/components/TrialInitializer';
-
-import Link from 'next/link'; // Use Link for internal routing
-import Image from 'next/image';
-import Logo from '@/public/preview.png'
 import DowryButton from './DowryButton';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '@/public/preview.png';
+
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle the menu visibility on mobile
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className='w-full z-40 h-14 sticky top-0 flex items-center justify-between bg-pink-100 px-6'>
-      {/* Logo or site title */}
-      <div className='text-2xl font-bold text-pink-600'>
-        <Image
-        src={Logo}
-        height={40}
-        />
-      </div>
-<div>
-<TrialInitializer> <DowryButton/></TrialInitializer>
-  </div>
-      {/* Desktop Nav */}
-      <div className='hidden md:flex space-x-6'>
-        <Link href='/' className='text-lg text-pink-600 hover:text-pink-800'>
-          Home
-        </Link>
-        <Link href='/about' className='text-lg text-pink-600 hover:text-pink-800'>
-          About
-        </Link>
-        <Link href='/privacy' className='text-lg text-pink-600 hover:text-pink-800'>
-          Privacy Policy
-        </Link>
+    <nav className="w-full z-40 h-14 sticky top-0 bg-pink-100 flex items-center justify-between px-4 md:px-6 shadow-sm">
+      {/* Logo */}
+      <div className="flex items-center gap-2">
+        <Image src={Logo} height={36} alt="Logo" />
+        
       </div>
 
-      {/* Mobile Menu Icon */}
-      <div className='md:hidden'>
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center gap-6">
+        <Link href="/" className="text-lg text-pink-600 hover:text-pink-800">
+          Home
+        </Link>
+        <Link href="/about" className="text-lg text-pink-600 hover:text-pink-800">
+          About
+        </Link>
+        <Link href="/privacy" className="text-lg text-pink-600 hover:text-pink-800">
+          Privacy
+        </Link>
+
+        {/* Dowry Button on Desktop */}
+        <TrialInitializer>
+          <DowryButton />
+        </TrialInitializer>
+      </div>
+
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden">
         <button onClick={toggleMenu}>
           {isMenuOpen ? (
-            <FaTimes className='text-2xl text-pink-600' />
+            <FaTimes className="text-2xl text-pink-600" />
           ) : (
-            <FaBars className='text-2xl text-pink-600' />
+            <FaBars className="text-2xl text-pink-600" />
           )}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`${
-          isMenuOpen ? 'block' : 'hidden'
-        } md:hidden absolute top-14 left-0 w-full bg-pink-100 text-center py-4 transition-all duration-300 ease-in-out`}
-      >
-        <Link href='/' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
-          Home
-        </Link>
-        <Link href='/about' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
-          About
-        </Link>
-        <Link href='/privacy' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
-          Privacy Policy
-        </Link>
-      </div>
+      {/* Mobile Dropdown Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-14 left-0 w-full bg-pink-100 shadow-md py-4 flex flex-col items-center gap-3 z-50 md:hidden">
+          <Link href="/" className="text-lg text-pink-600 hover:text-pink-800">
+            Home
+          </Link>
+          <Link href="/about" className="text-lg text-pink-600 hover:text-pink-800">
+            About
+          </Link>
+          <Link href="/privacy" className="text-lg text-pink-600 hover:text-pink-800">
+            Privacy
+          </Link>
+
+          {/* Dowry Button on Mobile */}
+          <TrialInitializer>
+            <DowryButton />
+          </TrialInitializer>
+        </div>
+      )}
     </nav>
   );
 }
