@@ -1,8 +1,11 @@
+'use client';
+
+import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8 px-6 ">
+    <footer className="bg-gray-900 text-white py-8 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
         {/* Branding */}
         <div className="text-center md:text-left">
@@ -12,10 +15,15 @@ const Footer = () => {
 
         {/* Navigation */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-center">
-          <a href="/" className="hover:text-yellow-400 transition">Home</a>
-          <a href="/about" className="hover:text-yellow-400 transition">About</a>
-           
-          <a href="/privacy" className="hover:text-yellow-400 transition">Privacy Policy</a>
+          <Link href="/" className="hover:text-yellow-400 transition">
+            Home
+          </Link>
+          <Link href="/about" className="hover:text-yellow-400 transition">
+            About
+          </Link>
+          <Link href="/privacy" className="hover:text-yellow-400 transition">
+            Privacy Policy
+          </Link>
         </div>
 
         {/* Socials */}
@@ -49,7 +57,9 @@ const Footer = () => {
 
       {/* Bottom note */}
       <div className="text-center mt-6">
-        <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Dowry Calculator 3000. All rights reserved.</p>
+        <p className="text-sm text-gray-500">
+          &copy; {new Date().getFullYear()} Dowry Calculator 3000. All rights reserved.
+        </p>
         <p className="text-red-500 mt-1 font-semibold">Do not accept or give dowry.</p>
       </div>
     </footer>

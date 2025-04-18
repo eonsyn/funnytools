@@ -19,11 +19,11 @@ export const metadata = {
     title: "Dowry Calculator",
     description:
       "A satirical web tool that calculates fake dowry amounts for laughs and awareness. Take the quiz, get your result, and share the message.",
-    url: "https://yourdomain.com", // replace with your real domain
+    url: "https://dowryai.netlify.app", // replace with your real domain
     siteName: "Dowry Calculator",
     images: [
       {
-        url: "https://yourdomain.com/preview.jpg", // link to your OG image
+        url: "https://dowryai.netlify.app/preview.jpg", // link to your OG image
         width: 1200,
         height: 630,
         alt: "Dowry Calculator 3000 Result Preview",
@@ -36,9 +36,9 @@ export const metadata = {
     title: "Dowry Calculator",
     description:
       "Mock the dowry system with a hilarious result card. Take the quiz, laugh, and raise awareness!",
-    images: ["https://yourdomain.com/preview.jpg"],
+    images: ["https://dowryai.netlify.app/preview.jpg"],
   },
-  metadataBase: new URL("https://yourdomain.com"), // Replace with your domain
+  metadataBase: new URL("https://dowryai.netlify.app"), // Replace with your domain
 };
 
 function page() {

@@ -16,11 +16,11 @@ export const metadata = {
       title: "About | Dowry Calculator",
       description:
         "Know the story behind Dowry Calculator — a creative, funny, and powerful way to mock the outdated dowry system and promote change.",
-      url: "https://yourdomain.com/about",
+      url: "https://dowryai.netlify.app/about",
       siteName: "Dowry Calculator",
       images: [
         {
-          url: "https://yourdomain.com/preview.jpg",
+          url: "https://dowryai.netlify.app/preview.png",
           width: 1200,
           height: 630,
           alt: "Dowry Calculator About Page",
@@ -33,9 +33,9 @@ export const metadata = {
       title: "About | Dowry Calculator",
       description:
         "Dowry Calculator is a satirical personality quiz that raises awareness against the dowry system in India. Learn more about our mission.",
-      images: ["https://yourdomain.com/preview.jpg"],
+      images: ["https://dowryai.netlify.app/preview.png"],
     },
-    metadataBase: new URL("https://yourdomain.com"), // Replace with your domain
+    metadataBase: new URL("https://dowryai.netlify.app"), // Replace with your domain
   };
   
   export default function AboutPage() {

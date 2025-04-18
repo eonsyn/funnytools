@@ -14,11 +14,11 @@ export const metadata = {
       title: "Privacy Policy | Dowry Calculator",
       description:
         "Privacy policy for Dowry Calculator website. Learn how we handle data and ensure your privacy while using our satirical tool.",
-      url: "https://yourdomain.com/privacy",
+      url: "https://dowryai.netlify.app/privacy",
       siteName: "Dowry Calculator",
       images: [
         {
-          url: "https://yourdomain.com/privacy-policy-image.jpg",
+          url: "hhttps://dowryai.netlify.app/privacy-policy-image.jpg",
           width: 1200,
           height: 630,
           alt: "Privacy Policy Dowry Calculator",
@@ -31,9 +31,9 @@ export const metadata = {
       title: "Privacy Policy | Dowry Calculator",
       description:
         "Learn about the privacy policy for Dowry Calculator, a fun tool to raise awareness against dowry.",
-      images: ["https://yourdomain.com/privacy-policy-image.jpg"],
+      images: ["https://dowryai.netlify.app/privacy-policy-image.jpg"],
     },
-    metadataBase: new URL("https://yourdomain.com"), // Replace with your domain
+    metadataBase: new URL("https://dowryai.netlify.app/"), // Replace with your domain
   };
   
   export default function PrivacyPolicyPage() {

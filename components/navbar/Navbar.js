@@ -1,9 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for hamburger and close button
-
+import { FaBars, FaTimes } from 'react-icons/fa';
+import Link from 'next/link'; // Use Link for internal routing
+import Image from 'next/image';
+import Logo from '@/public/preview.png'
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for toggling mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Toggle the menu visibility on mobile
   const toggleMenu = () => {
@@ -11,23 +13,26 @@ function Navbar() {
   };
 
   return (
-    <nav className='w-full z-40 h-14 sticky top-0  flex items-center justify-between bg-pink-100 px-6'>
+    <nav className='w-full z-40 h-14 sticky top-0 flex items-center justify-between bg-pink-100 px-6'>
       {/* Logo or site title */}
       <div className='text-2xl font-bold text-pink-600'>
-        Dowry Calculator
+        <Image
+        src={Logo}
+        height={40}
+        />
       </div>
 
       {/* Desktop Nav */}
       <div className='hidden md:flex space-x-6'>
-        <a href='/' className='text-lg text-pink-600 hover:text-pink-800'>
+        <Link href='/' className='text-lg text-pink-600 hover:text-pink-800'>
           Home
-        </a>
-        <a href='/about' className='text-lg text-pink-600 hover:text-pink-800'>
+        </Link>
+        <Link href='/about' className='text-lg text-pink-600 hover:text-pink-800'>
           About
-        </a>
-        <a href='/privacy' className='text-lg text-pink-600 hover:text-pink-800'>
+        </Link>
+        <Link href='/privacy' className='text-lg text-pink-600 hover:text-pink-800'>
           Privacy Policy
-        </a>
+        </Link>
       </div>
 
       {/* Mobile Menu Icon */}
@@ -45,17 +50,17 @@ function Navbar() {
       <div
         className={`${
           isMenuOpen ? 'block' : 'hidden'
-        } md:hidden absolute top-14 left-0 w-full bg-pink-100 text-center py-4`}
+        } md:hidden absolute top-14 left-0 w-full bg-pink-100 text-center py-4 transition-all duration-300 ease-in-out`}
       >
-        <a href='/' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
+        <Link href='/' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
           Home
-        </a>
-        <a href='/about' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
+        </Link>
+        <Link href='/about' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
           About
-        </a>
-        <a href='/privacy' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
+        </Link>
+        <Link href='/privacy' className='block text-lg text-pink-600 py-2 hover:text-pink-800'>
           Privacy Policy
-        </a>
+        </Link>
       </div>
     </nav>
   );

@@ -1,8 +1,8 @@
 const faqList = [
     {
-      question: "What is the Dowry Calculator 3000?",
+      question: "What is the Dowry Calculator ?",
       answer:
-        "Dowry Calculator 3000 is a satirical tool that humorously estimates dowry based on quirky personality questions. It's designed to raise awareness against the outdated dowry system.",
+        "Dowry Calculator  is a satirical tool that humorously estimates dowry based on quirky personality questions. It's designed to raise awareness against the outdated dowry system.",
     },
     {
       question: "Is this website serious?",
@@ -23,24 +23,25 @@ const faqList = [
   
   const FaqCard = () => {
     return (
-      <section className="max-w-4xl mx-auto px-6 py-10  rounded-2xl   mt-10">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-          Frequently Asked Questions
-        </h2>
-        <div className="space-y-4">
-          {faqList.map((faq, idx) => (
-            <details
-              key={idx}
-              className="border bg-pink-200 border-gray-200 rounded-md p-4 group transition-all duration-300"
-            >
-              <summary className="font-medium cursor-pointer text-lg text-gray-700 group-open:text-purple-600">
-                {faq.question}
-              </summary>
-              <p className="mt-2 text-gray-600">{faq.answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <section className="max-w-4xl mx-auto px-6 py-12 mt-10 rounded-2xl ">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-pink-600 font-secondary">
+        Frequently Asked Questions
+      </h2>
+
+      <div className="space-y-4">
+        {faqList.map((faq, idx) => (
+          <details
+            key={idx}
+            className="group border border-pink-300 rounded-lg bg-pink-50 px-5 py-4 transition-all duration-300 hover:shadow-md"
+          >
+            <summary className="text-lg font-semibold cursor-pointer text-gray-800 group-open:text-pink-600">
+              {faq.question}
+            </summary>
+            <p className="mt-2 text-gray-700 leading-relaxed">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
     );
   };
   

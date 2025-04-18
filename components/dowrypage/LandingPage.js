@@ -14,7 +14,7 @@ function LandingPage() {
     <div>
       <div className='bg-pink-100'>
      
-     <div className="page min-h-screen bg-[url(https://as2.ftcdn.net/jpg/14/07/68/73/1000_F_1407687350_pI1bfIxXAePUKHtwQrVENFqtGuVvw6eN.jpg)] bg-no-repeat bg-cover  bg-blend-screen bg-pink-300 border-b-2     ">
+     <div className="page    ">
        {
              showQeustion ? <QuestionForm></QuestionForm> :
                <Home closeModal={closeModal} />

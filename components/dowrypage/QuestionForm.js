@@ -2,7 +2,7 @@
 import { FaArrowLeft } from 'react-icons/fa';
 import React, { useState } from 'react';
 import DowryCard from './DowryCard';
-
+import DowryCardSkeleton from './DowryCardSkeleton';
 export default function QuestionForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -17,7 +17,7 @@ export default function QuestionForm() {
     expectations: '',
   });
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState(null);
 
   const handleChange = (e) => {
@@ -62,6 +62,12 @@ export default function QuestionForm() {
     });
     setResponse(null);
   };
+
+  if(loading){
+    return (
+      <DowryCardSkeleton/>
+    )
+  }
 
   return (
     <div className="max-w-5xl mx-auto md:p-6 rounded-2xl shadow-2xl bg-white/40 backdrop-blur-2xl mb-6 relative">
