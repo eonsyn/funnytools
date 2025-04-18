@@ -10,12 +10,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <head>
-        {/* ✅ Paste your Google verification here */}
-        <meta
-          name="google-site-verification"
-          content="a519RGXXnU8_HDFGvb_9NLkro6BAy_BnCXPq8fhFTkY"
-        />
+        <head>
+        {/* ✅ Google Site Verification (optional) */}
+        <meta name="google-site-verification" content="a519RGXXnU8_HDFGvb_9NLkro6BAy_BnCXPq8fhFTkY" />
+
+        {/* ✅ Google Analytics Tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBQK12HPYQ"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KBQK12HPYQ');
+          `
+        }} />
       </head>
       <body
          
