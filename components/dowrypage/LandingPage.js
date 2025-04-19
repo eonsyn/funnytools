@@ -4,7 +4,7 @@ import QuestionForm from './QuestionForm'
 import { useState } from 'react'
 import Home from './Home'
 import FaqCard from './FaqCard'  
- 
+import DowryResultCard from './DowryResultCard'
 import NativeBanner from '../ads/NativeBanner'
 function LandingPage() {
     const [showQeustion, setshowQeustion] = useState(false)
@@ -23,6 +23,14 @@ function LandingPage() {
            }
      </div>
          {/* <NativeBanner/> */}
+         <DowryResultCard
+  name="Aryan Singh"
+  profession="website designer"
+  dowry="102505"
+  condition="No more poetry. Must learn how to make chai in under 2 mins."
+  randomPersonCondition="No more poetry. Must learn how to make chai in under 2 mins."
+/>
+
            <FaqCard/> 
          </div>
     </div>

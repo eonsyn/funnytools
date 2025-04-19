@@ -13,7 +13,7 @@ export default function DowryButton() {
 
   // 🔁 Redirect to /get-balance if trial is 0
   useEffect(() => {
-    if (trial <= 0) {
+    if (trial < 0 || trial===0) {
       router.push('/get-balance');
     }
   }, [trial, router]);
@@ -37,7 +37,7 @@ toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
   return (
     <div className="flex items-center gap-4">
       <div className="text-xl font-semibold text-gray-800">
-        Balance: <span className="text-pink-600">{trial-1}</span>
+        Balance: <span className="text-pink-600">{trial}</span>
       </div>
 
       <button

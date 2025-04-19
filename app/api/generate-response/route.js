@@ -40,19 +40,21 @@ Respond with:
 
 {
   "recommended_dowry": {
-    "item_1": "string",
-    "item_2": "string",
-    "item_3": "string",//only 3 items not more than this
+    "item_1": "string",//it contain the rupees of dowry  with some sarcastic text 
+    "item_2": "string",//only 2 items not more than this
+      
      },
-  "reasoning": "string",
-  "moral_message": "string"
+  "reasoning": "string",// reply it in sarcastic and use user data and reply in the story format and blunt reply nawabi and make sure that it short and blunt too point insecurity 
+    "dowry":string, //  it should be number only and must  be relavant to the data which you provide in the json and also add commas like 2,000 not 2000 for better readiability
+    
 }
-  reply in hindienglish 
+  reply in hindienglish (reply me kam se kam english word ka use karna taki indian lag sake )
 `;
 
 
   try {
     const result = await model.generateContent(prompt);
+    
     let responseText = result.response.text().replace(/```json|```/g, '').trim();
     const json = JSON.parse(responseText);
 

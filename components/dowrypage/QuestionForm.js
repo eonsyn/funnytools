@@ -5,8 +5,11 @@ import DowryCard from './DowryCard';
 import DowryCardSkeleton from './DowryCardSkeleton';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { decrementTrial, addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
+import { useRouter } from 'next/navigation';
+
 import { toast } from 'react-toastify';
 export default function QuestionForm() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
    
@@ -47,6 +50,12 @@ export default function QuestionForm() {
     e.preventDefault();
     setLoading(true);
     setResponse(null);
+    if (trial < 0 || trial === 0) {
+      router.push('/get-balance');  
+      throw new Error("Insufficient balance.");
+      
+       
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     try {
@@ -58,12 +67,14 @@ export default function QuestionForm() {
 
       const json = await res.json();
       setResponse(json);
+      console.log(json)
+      handleUseTrial();
     } catch (error) {
       console.error('Error generating response:', error);
-      toast.error('Something went wrong! 😢');
+      toast.error('Insufficient credit 😢');
     } finally {
       setLoading(false);
-      handleUseTrial();
+      
     }
   };
 
@@ -109,7 +120,8 @@ export default function QuestionForm() {
 
       {/* Show generated result or form */}
       {response ? (
-        <DowryCard clearResponse={handleResponse} name={formData.name} response={response} />
+        <DowryCard clearResponse={handleResponse} name={formData.name}  dowry={response?.dowry}
+        condition={response?.condition}  profession={formData.profession} response={response} />
       ) : (
         <form onSubmit={handleSubmit} className="grid text-black px-1.5 grid-cols-1 md:grid-cols-2 gap-6">
           {[
@@ -183,6 +195,7 @@ export default function QuestionForm() {
           </div>
         </form>
       )}
+    
     </div>
   );
 }

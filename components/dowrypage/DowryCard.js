@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import html2canvas from 'html2canvas';
+import { QRCodeCanvas } from 'qrcode.react';
 
 const formatText = (text) => {
     if (!text) return null;
@@ -10,7 +11,7 @@ const formatText = (text) => {
     return text;
 };
 
-export default function DowryCard({ clearResponse, response, name }) {
+export default function DowryCard({ clearResponse,   profession, dowry,response, name }) {
     const cardRef = useRef();
     const [isMobile, setIsMobile] = useState(true);
 
@@ -53,115 +54,177 @@ export default function DowryCard({ clearResponse, response, name }) {
                     width: '100%',
                      
                     margin: '0 auto',
-                    background: 'linear-gradient(135deg, #fef3c7, #fbbf24)',
+                    
                     padding: '16px',
                     borderRadius: '20px',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+                     
                 }}
             >
                 <div
-                    style={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        borderRadius: '20px',
-                        padding: '24px',
-                        boxShadow: '0 6px 20px rgba(0,0,0,0.1)',
-                    }}
-                >
-                    {/* Header */}
-                    <div
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginBottom: '24px',
-                        }}
-                    >
-                        <img
-                            src="/profile-placeholder.png"
-                            alt="Profile"
-                            width={72}
-                            height={72}
-                            style={{
-                                borderRadius: '50%',
-                                border: '4px solid #ec4899',
-                                marginRight: '16px',
-                                boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                            }}
-                        />
-                        <h2
-                            style={{
-                                fontSize: '24px',
-                                fontWeight: 'bold',
-                                textTransform: 'uppercase',
-                                color: '#ec4899',
-                                letterSpacing: '1px',
-                                margin: 0,
-                            }}
-                        >
-                            {name}
-                        </h2>
-                    </div>
-
-                    {/* Main Content */}
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: isMobile ? 'column' : 'row',
-                            gap: '24px',
-                        }}
-                    >
-                        {/* Reasoning */}
-                        <div style={{ flex: 1 }}>
-                            <h3 style={{ color: '#3B82F6', fontSize: '18px', fontWeight: '600', marginBottom: '8px' }}>
-                                Description:
-                            </h3>
-                            <p
-                                style={{
-                                    color: '#374151',
-                                    fontSize: '16px',
-                                    lineHeight: '1.6',
-                                    marginBottom: '16px',
-                                }}
-                                dangerouslySetInnerHTML={{ __html: formatText(response.reasoning) }}
-                            />
-                        </div>
-
-                        {/* Dowry */}
-                        <div style={{ flex: 1 }}>
-                            <h3 style={{ color: '#16A34A', fontSize: '18px', fontWeight: '600', marginBottom: '8px' }}>
-                                Dowry:
-                            </h3>
-                            <ol
+  style={{
+    maxWidth: '24rem',
+    margin: '0 auto',
+    padding: '1.5rem',
+    fontFamily: 'var(--font-primary)',
+    borderRadius: '1rem',
+    backgroundColor: 'white',
+    boxShadow: '0 10px 15px rgba(0, 0, 0, 0.1)',
+    border: '2px solid #D1D5DB',
+  }}
+>
+  {/* Profile image placeholder */}
+  <div
+    style={{
+      paddingTop: '0.25rem',
+      paddingBottom: '0.25rem',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      width: '100%',
+    }}
+  >
+    <div
+      style={{
+        width: '4rem',
+        height: '4rem',
+        borderRadius: '9999px',
+        backgroundColor: '#6b1e1e',
+      }}
+    />
+    {/* Name and Profession */}
+    <div>
+      <h2
         style={{
-            paddingLeft: '20px',
-            color: '#374151',
-            fontSize: '16px',
-            lineHeight: '1.6',
-            marginBottom: '16px',
-            listStyleType: 'decimal',
+          fontSize: '1.25rem',
+          fontWeight: 600,
+          color: '#2e2e2e',
         }}
-    >
-        {Object.entries(response.recommended_dowry).map(([key, value]) => (
-            <li key={key} dangerouslySetInnerHTML={{ __html: formatText(value) }} />
-        ))}
-    </ol>
-                        </div>
-                    </div>
+      >
+        {name}
+      </h2>
+      <p
+        style={{
+          fontSize: '0.875rem',
+          color: '#4B5563',
+        }}
+      >
+        {profession}
+      </p>
+    </div>
+  </div>
 
-                    {/* Footer */}
-                    <p
-                        style={{
-                            fontSize: '14px',
-                            textAlign: 'center',
-                            color: '#EF4444',
-                            fontWeight: 'bold',
-                            borderTop: '1px solid #E5E7EB',
-                            paddingTop: '16px',
-                            marginTop: '24px',
-                        }}
-                    >
-                        🚫 Do not accept or give dowry
-                    </p>
-                </div>
+  <hr />
+
+  {/* Dowry Info */}
+  <div
+    style={{
+      color: '#6b1e1e',
+      fontWeight: 500,
+      marginBottom: '0.5rem',
+    }}
+  >
+    <span
+      style={{
+        fontWeight: 600,
+        fontSize:"1.4rem",
+        fontFamily: 'var(--font-secondary)',
+        color: 'black',
+      }}
+    >
+      Dowry:
+    </span>{' '}
+    <p 
+    style={{
+        
+    }}>
+         Rs {dowry}
+    </p>
+   
+  </div>
+
+  {/* Conditions */}
+  <div
+    style={{
+      fontSize: '0.875rem',
+      color: 'black',
+      marginBottom: '0.5rem',
+    }}
+  >
+    <p>
+      <span
+        style={{
+          fontWeight: 600,
+          fontSize:"1.4rem",
+          fontFamily: 'var(--font-secondary)',
+        }}
+      >
+        Condition:
+      </span>
+      <span style={{ display: 'block' }}>
+        {Object.entries(response.recommended_dowry).map(([key, value]) => (
+          <li key={key} dangerouslySetInnerHTML={{ __html: formatText(value) }} />
+        ))}
+      </span>
+    </p>
+    <p>
+      <span
+        style={{
+          fontWeight: 600,
+          fontSize:"1.4rem",
+          fontFamily: 'var(--font-secondary)',
+        }}
+      >
+        Random person :
+      </span>
+      <span
+        style={{ display: 'block' }}
+        dangerouslySetInnerHTML={{ __html: formatText(response.reasoning) }}
+      />
+    </p>
+  </div>
+
+  {/* Button & QR */}
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginTop: '1rem',
+    }}
+  >
+    <button
+      style={{
+        backgroundColor: '#94a3b8',
+        color: 'white',
+        fontSize: '0.875rem',
+        padding: '0.5rem 1rem',
+        borderRadius: '0.375rem',
+        textAlign:'center',
+        fontFamily: 'var(--font-secondary)',
+        transition: 'background-color 0.2s',
+        border: 'none',
+        cursor: 'pointer',
+      }}
+    >
+      Calculate your own Dowry
+    </button>
+    <QRCodeCanvas value="https://dowryai.netlify.app" size={48} />
+  </div>
+
+  {/* Footer note */}
+  <p
+    style={{
+      fontSize: '0.75rem',
+      color: '#dc2626',
+      textAlign: 'center',
+      marginTop: '0.75rem',
+      fontStyle: 'italic',
+    }}
+  >
+    Do not accept or give dowry
+  </p>
+</div>
+
             </div>
 
             {/* Download Button */}

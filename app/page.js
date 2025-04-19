@@ -8,6 +8,7 @@ export const metadata = {
   keywords: [
     "dowry", "calculator", "dowry calculator", "marriage", "wedding", "dowry system", "dahej pratha", "dahej calculator"
     ,
+    "calculate my dahej",
     "satirical quiz",
     "anti dowry tool",
     "dowry awareness",
