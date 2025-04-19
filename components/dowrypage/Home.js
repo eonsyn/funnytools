@@ -20,12 +20,14 @@ function Home({ closeModal }) {
         </div>
 
         <div className="flex justify-center">
-          <button
-            onClick={closeModal}
-            className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-200 font-primary text-base md:text-lg"
-          >
-            Calculate Now
-          </button>
+        <button
+  onClick={closeModal}
+  className="relative cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white transition duration-300 ease-out rounded-2xl shadow-lg group px-8 py-3 text-base md:text-lg bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700"
+>
+  <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 translate-y-0 bg-white opacity-10 group-hover:translate-x-full group-hover:opacity-0 rounded-2xl"></span>
+  <span className="relative z-10 font-primary">  Calculate Now</span>
+</button>
+
         </div>
       </div>
     </main>

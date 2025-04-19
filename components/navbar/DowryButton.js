@@ -41,7 +41,7 @@ toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
       </div>
 
       <button
-        className="bg-pink-500 hover:bg-pink-600 text-white font-semibold p-1 rounded-xl transition-all"
+        className="bg-pink-500 cursor-pointer hover:bg-pink-600 text-white font-semibold p-1 rounded-xl transition-all"
         onClick={handleRegainClick}
         title={`${5 - clicks} more clicks to unlock trials`}
       >

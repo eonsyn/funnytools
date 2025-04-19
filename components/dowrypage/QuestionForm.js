@@ -168,7 +168,7 @@ export default function QuestionForm() {
           <div className="md:col-span-2 text-center">
           <button
   type="submit"
-  className={`bg-pink-600 hover:bg-pink-700 text-white text-lg px-8 py-3 rounded-xl transition-all duration-300 ${
+  className={`bg-pink-600 hover:bg-pink-700 cursor-pointer text-white text-lg px-8 py-3 rounded-xl transition-all duration-300 ${
     loading || trial === 0 ? 'opacity-60 cursor-not-allowed' : ''
   }`}
   disabled={loading || trial === 0}

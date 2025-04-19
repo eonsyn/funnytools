@@ -4,6 +4,8 @@ import QuestionForm from './QuestionForm'
 import { useState } from 'react'
 import Home from './Home'
 import FaqCard from './FaqCard'  
+ 
+import NativeBanner from '../ads/NativeBanner'
 function LandingPage() {
     const [showQeustion, setshowQeustion] = useState(false)
     function closeModal() {
@@ -20,8 +22,8 @@ function LandingPage() {
                <Home closeModal={closeModal} />
            }
      </div>
-         
-           <FaqCard/>
+         {/* <NativeBanner/> */}
+           <FaqCard/> <NativeBanner/>
          </div>
     </div>
   )
