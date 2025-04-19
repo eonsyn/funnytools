@@ -23,7 +23,7 @@ function LandingPage() {
            }
      </div>
          {/* <NativeBanner/> */}
-           <FaqCard/> <NativeBanner/>
+           <FaqCard/> 
          </div>
     </div>
   )

@@ -31,7 +31,10 @@ export default function RootLayout({ children }) {
               gtag('config', 'G-KBQK12HPYQ');
             `,
           }}
+
+
         />
+        <script type='text/javascript' src='//compassionunsuccessful.com/62/39/03/623903d99eb97f302e8178d5040961f3.js'></script>
       </head>
       <body>
         <Providers>

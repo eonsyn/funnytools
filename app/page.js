@@ -6,7 +6,8 @@ export const metadata = {
   description:
     "Take this humorous personality quiz to get your imaginary dowry estimate. Dowry Calculator mocks the outdated dowry system and spreads awareness through comedy. Say no to dowry!",
   keywords: [
-    "dowry calculator",
+    "dowry", "calculator", "dowry calculator", "marriage", "wedding", "dowry system", "dahej pratha", "dahej calculator"
+    ,
     "satirical quiz",
     "anti dowry tool",
     "dowry awareness",
