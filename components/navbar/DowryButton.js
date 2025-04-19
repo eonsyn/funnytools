@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // for client-side routing
 import { addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
-
+import { toast, ToastContainer } from 'react-toastify';
 export default function DowryButton() {
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
@@ -21,7 +21,7 @@ export default function DowryButton() {
   const handleRegainClick = () => {
     const nextClick = clicks + 1;
     setClicks(nextClick);
-
+toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
     window.open(
       'https://compassionunsuccessful.com/g0hw4rr1?key=cdd8bdca93ac509c313b4aceb35f084e',
       '_blank'
@@ -30,14 +30,14 @@ export default function DowryButton() {
     if (nextClick >= 5) {
       dispatch(addTrials(5));
       setClicks(0);
-      alert('✅ 5 trials added to your balance!');
+      toast.success('✅ 5 trials added to your balance!');
     }
   };
 
   return (
     <div className="flex items-center gap-4">
       <div className="text-xl font-semibold text-gray-800">
-        Balance: <span className="text-pink-600">{trial}</span>
+        Balance: <span className="text-pink-600">{trial-1}</span>
       </div>
 
       <button

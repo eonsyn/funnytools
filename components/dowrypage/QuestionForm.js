@@ -1,15 +1,19 @@
 'use client';
 import { FaArrowLeft } from 'react-icons/fa';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DowryCard from './DowryCard';
 import DowryCardSkeleton from './DowryCardSkeleton';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { decrementTrial, addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
-
+import { toast } from 'react-toastify';
 export default function QuestionForm() {
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
    
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [])
+  
   const [formData, setFormData] = useState({
     name: '',
     education: '',
@@ -30,7 +34,7 @@ export default function QuestionForm() {
       dispatch(decrementTrial());
        
     } else {
-      alert('Insufficient balance. Click button regain access.');
+      toast.warn('Insufficient balance. Click button regain access.');
     }
   };
 
@@ -43,6 +47,7 @@ export default function QuestionForm() {
     e.preventDefault();
     setLoading(true);
     setResponse(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     try {
       const res = await fetch('/api/generate-response', {
@@ -55,7 +60,7 @@ export default function QuestionForm() {
       setResponse(json);
     } catch (error) {
       console.error('Error generating response:', error);
-      alert('Something went wrong! 😢');
+      toast.error('Something went wrong! 😢');
     } finally {
       setLoading(false);
       handleUseTrial();

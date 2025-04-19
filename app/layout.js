@@ -2,6 +2,8 @@ import './globals.css';
 import Providers from './providers';
 import Footer from '@/components/footer/Footer';
 import Navbar from '@/components/navbar/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+  
  export const metadata = {
   title: 'Dowry Calculator',
   description:
@@ -34,7 +36,7 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
               <Navbar /> 
-       
+       <ToastContainer/>
           {children}
           <Footer />
         </Providers>
