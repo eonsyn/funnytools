@@ -2,7 +2,7 @@
 import React  from 'react' 
 import LandingPage from '@/components/dowrypage/LandingPage';
 export const metadata = {
-  title: "Dowry Calculator | A Satirical Tool to End a Serious Problem",
+  title: "Calculate Your Dowry| A Satirical Tool to End a Serious Problem",
   description:
     "Take this humorous personality quiz to get your imaginary dowry estimate. Dowry Calculator mocks the outdated dowry system and spreads awareness through comedy. Say no to dowry!",
   keywords: [
