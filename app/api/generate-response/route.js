@@ -1,4 +1,6 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { connectToDatabase } from '@/lib/mongodb';
+import Submission from '@/models/Submission';
 
 export async function POST(req) {
   const { formData } = await req.json(); // receives labeled object
@@ -40,7 +42,7 @@ Respond with:
   "recommended_dowry": {
     "item_1": "string",
     "item_2": "string",
-    "item_3": "string",//only 3 items
+    "item_3": "string",//only 3 items not more than this
      },
   "reasoning": "string",
   "moral_message": "string"
@@ -53,6 +55,16 @@ Respond with:
     const result = await model.generateContent(prompt);
     let responseText = result.response.text().replace(/```json|```/g, '').trim();
     const json = JSON.parse(responseText);
+
+     // 🔌 Connect to MongoDB
+     await connectToDatabase();
+
+     // 💾 Save to DB
+     await Submission.create({
+       formData,
+       generatedResponse: json,
+     });
+
 
     return new Response(JSON.stringify(json), { status: 200 });
   } catch (err) {
