@@ -126,7 +126,7 @@ export default function QuestionForm() {
         <form onSubmit={handleSubmit} className="grid text-black px-1.5 grid-cols-1 md:grid-cols-2 gap-6">
           {[
             { name: 'name', label: '  Your Name', type: 'text' },
-            { name: 'education', label: '  Education', type: 'select', options: ['High School', 'Bachelor’s', 'Master’s', 'PhD'] },
+            { name: 'education', label: '  Education', type: 'select', options: ['High School', 'Diploma','Intermediate','Bachelor’s', 'Master’s', 'PhD'] },
             { name: 'profession', label: '  Profession', type: 'text' },
             { name: 'maritalStatus', label: '  Marital Status', type: 'select', options: ['Single', 'Engaged', 'Divorced'] },
             { name: 'carOwnership', label: '  Car Ownership', type: 'select', options: ['Yes', 'No'] },
