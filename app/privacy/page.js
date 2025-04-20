@@ -1,36 +1,36 @@
 // app/privacy/page.js
 export const metadata = {
-    title: "Privacy Policy | Dowry Calculator",
+    title: "Privacy Policy | Dowry Calculator Ai",
     description:
-      "Read the Privacy Policy of Dowry Calculator, a satirical tool aimed at raising awareness against dowry. Learn how we handle your data and protect your privacy.",
+      "Read the Privacy Policy of Dowry Calculator Ai, a satirical tool aimed at raising awareness against dowry. Learn how we handle your data and protect your privacy.",
     keywords: [
       "privacy policy",
-      "dowry calculator privacy",
+      "Dowry Calculator Ai privacy",
       "anti dowry app privacy",
       "privacy policy India",
       "dowry awareness tool",
     ],
     openGraph: {
-      title: "Privacy Policy | Dowry Calculator",
+      title: "Privacy Policy | Dowry Calculator Ai",
       description:
-        "Privacy policy for Dowry Calculator website. Learn how we handle data and ensure your privacy while using our satirical tool.",
+        "Privacy policy for Dowry Calculator Ai website. Learn how we handle data and ensure your privacy while using our satirical tool.",
       url: "https://dowryai.netlify.app/privacy",
-      siteName: "Dowry Calculator",
+      siteName: "Dowry Calculator Ai",
       images: [
         {
           url: "hhttps://dowryai.netlify.app/privacy-policy-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Privacy Policy Dowry Calculator",
+          alt: "Privacy Policy Dowry Calculator Ai",
         },
       ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Privacy Policy | Dowry Calculator",
+      title: "Privacy Policy | Dowry Calculator Ai",
       description:
-        "Learn about the privacy policy for Dowry Calculator, a fun tool to raise awareness against dowry.",
+        "Learn about the privacy policy for Dowry Calculator Ai, a fun tool to raise awareness against dowry.",
       images: ["https://dowryai.netlify.app/privacy-policy-image.jpg"],
     },
     metadataBase: new URL("https://dowryai.netlify.app/"), // Replace with your domain
@@ -44,7 +44,7 @@ export const metadata = {
             Privacy Policy
           </h1>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            Welcome to Dowry Calculator! Your privacy is important to us. This
+            Welcome to Dowry Calculator Ai! Your privacy is important to us. This
             privacy policy outlines how we handle your information while you use
             our website, which is a satirical tool designed to raise awareness
             against the dowry system.
@@ -110,7 +110,7 @@ export const metadata = {
           </p>
   
           <p className="text-center text-gray-500 italic mt-6 text-sm">
-            Thank you for using Dowry Calculator and for supporting anti-dowry
+            Thank you for using Dowry Calculator Ai and for supporting anti-dowry
             awareness!
           </p>
         </div>

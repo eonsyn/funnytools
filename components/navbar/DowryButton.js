@@ -33,9 +33,25 @@ toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
       toast.success('✅ 5 trials added to your balance!');
     }
   };
+  let colorClass = 'text-green-600 shadow-inner bg-green-50';
+  let borderClass = 'border-green-300';
 
+  if (trial <= 0) {
+    colorClass = 'text-red-700 shadow-inner bg-red-50';
+    borderClass = 'border-red-300';
+  } else if (trial === 1 || trial === 2) {
+    colorClass = 'text-red-500 shadow-inner bg-red-100';
+    borderClass = 'border-red-200';
+  }
+// "flex items-center gap-4 p-2 rounded-lg bg-white shadow"
   return (
-    <div className="flex items-center gap-4">
+    <div className={`
+      px-4 py-2 rounded-xl flex items-center gap-4
+      font-semibold text-sm md:text-base 
+      border ${borderClass} 
+      ${colorClass}
+      transition-all duration-300 ease-in-out
+    `}>
       <div className="text-xl font-semibold text-gray-800">
         Balance: <span className="text-pink-600">{trial}</span>
       </div>

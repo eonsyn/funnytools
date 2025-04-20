@@ -6,6 +6,8 @@ import Home from './Home'
 import FaqCard from './FaqCard'  
 import DowryResultCard from './DowryResultCard'
 import NativeBanner from '../ads/NativeBanner'
+import PriceSection from './PriceSection'
+import UnderstandDowryPractice from './UnderstandDowryPractice'
 function LandingPage() {
     const [showQeustion, setshowQeustion] = useState(false)
     function closeModal() {
@@ -13,7 +15,7 @@ function LandingPage() {
   
     }
   return (
-    <div>
+    <div className='font-secondary'>
       <div className='bg-pink-100'>
      
      <div className="page    ">
@@ -23,14 +25,9 @@ function LandingPage() {
            }
      </div>
          {/* <NativeBanner/> */}
-         <DowryResultCard
-  name="Aryan Singh"
-  profession="website designer"
-  dowry="102505"
-  condition="No more poetry. Must learn how to make chai in under 2 mins."
-  randomPersonCondition="No more poetry. Must learn how to make chai in under 2 mins."
-/>
-
+         
+         
+<UnderstandDowryPractice/><PriceSection/>
            <FaqCard/> 
          </div>
     </div>

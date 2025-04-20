@@ -5,17 +5,32 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import TrialInitializer from '@/components/TrialInitializer';
 import DowryButton from './DowryButton';
 
+import {  useTrialState } from '@/lib/redux/slices/trialSlice';
+import {   useSelector } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/preview.png';
 
 function Navbar() {
+ 
+  const trial = useSelector(useTrialState);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  let colorClass = 'text-green-600 shadow-inner bg-green-50';
+  let borderClass = 'border-green-300';
+
+  if (trial <= 0) {
+    colorClass = 'text-red-700 shadow-inner bg-red-50';
+    borderClass = 'border-red-300';
+  } else if (trial === 1 || trial === 2) {
+    colorClass = 'text-red-500 shadow-inner bg-red-100';
+    borderClass = 'border-red-200';
+  }
 
   return (
-    <nav className="w-full z-40 h-14 sticky top-0 bg-pink-100 flex items-center justify-between px-4 md:px-6 shadow-sm">
+    <nav className="w-full z-40 h-14 sticky top-0 bg-pink-100/70 backdrop-blur-md flex items-center justify-between px-4 md:px-6  ">
+ 
       {/* Logo */}
       <div className="flex items-center gap-2">
         <Image src={Logo} height={36} alt="Logo" />
@@ -41,8 +56,21 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu Toggle */}
-      <div className="md:hidden">
-        <button onClick={toggleMenu}>
+      <div className="md:hidden flex items-center gap-1">
+      
+      <div
+      className={`
+        px-4 py-2 rounded-xl 
+        font-semibold text-sm md:text-base 
+        border ${borderClass} 
+        ${colorClass}
+        transition-all duration-300 ease-in-out
+      `}
+    >
+      <span className="text-gray-700 mr-1">Balance:</span>
+      <span className="font-bold">{trial}</span>
+    </div>
+      <button onClick={toggleMenu}>
           {isMenuOpen ? (
             <FaTimes className="text-2xl text-pink-600" />
           ) : (

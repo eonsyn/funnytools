@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 
         />
        </head>
-      <body>
+      <body className='font-secondary bg-pink-100'>
         <Providers>
               <Navbar /> 
        <ToastContainer/>

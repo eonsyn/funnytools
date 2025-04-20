@@ -25,7 +25,7 @@ ${JSON.stringify(formData, null, 2)}
 ---
 
 📢 TASK:
-Banaao ek **fake, comically insulting dowry report** called **"Dowry Calculator 3000"** based on upar diye gaye form ke jawaab.
+Banaao ek **fake, comically insulting dowry report** called **"Dowry Calculator Ai"** based on upar diye gaye form ke jawaab.
 
 Tumhara response hona chahiye **valid JSON** format mein, bina kisi markdown ya comment ke, exactly is structure mein:
 
