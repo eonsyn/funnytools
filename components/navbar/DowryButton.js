@@ -12,11 +12,7 @@ export default function DowryButton() {
   const [clicks, setClicks] = useState(0);
 
   // 🔁 Redirect to /get-balance if trial is 0
-  useEffect(() => {
-    if (trial < 0 || trial===0) {
-      router.push('/get-balance');
-    }
-  }, [trial, router]);
+
 
   const handleRegainClick = () => {
     const nextClick = clicks + 1;

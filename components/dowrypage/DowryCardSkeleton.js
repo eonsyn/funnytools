@@ -1,43 +1,48 @@
+'use client';
+
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function DowryCardSkeleton() {
   return (
-    <div className="flex flex-col items-center min-h-screen w-full px-4 py-10">
-      <div className="w-full max-w-2xl bg-gradient-to-tr from-yellow-100 to-yellow-300 p-6 rounded-2xl shadow-md">
-        <div className="bg-white/90 rounded-2xl p-6 shadow-lg animate-pulse">
-          {/* Header Skeleton */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-gray-300 rounded-full border-4 border-pink-400 shadow-md" />
-            <div className="h-6 bg-gray-300 rounded-md w-1/2" />
+    <div className="flex flex-col items-center w-full min-h-screen px-4 py-8">
+      <div className="max-w-md w-full p-6 rounded-xl bg-white shadow-lg border border-gray-200">
+        <div className="flex items-center gap-4 mb-4">
+          <Skeleton circle width={64} height={64} />
+          <div className="flex flex-col gap-2">
+            <Skeleton width={120} height={20} />
+            <Skeleton width={80} height={16} />
           </div>
-
-          {/* Main Content Skeleton */}
-          <div className="flex flex-col md:flex-row gap-6">
-            {/* Description */}
-            <div className="flex-1 space-y-2">
-              <div className="h-4 bg-blue-300 w-1/3 rounded-md" />
-              <div className="h-4 bg-gray-300 w-full rounded-md" />
-              <div className="h-4 bg-gray-300 w-5/6 rounded-md" />
-              <div className="h-4 bg-gray-300 w-2/3 rounded-md" />
-            </div>
-
-            {/* Dowry List */}
-            <div className="flex-1 space-y-2">
-              <div className="h-4 bg-green-300 w-1/3 rounded-md" />
-              <div className="h-4 bg-gray-300 w-5/6 rounded-md" />
-              <div className="h-4 bg-gray-300 w-4/6 rounded-md" />
-              <div className="h-4 bg-gray-300 w-3/4 rounded-md" />
-            </div>
-          </div>
-
-          {/* Footer Line */}
-          <div className="h-4 bg-red-300 mt-6 w-2/3 mx-auto rounded-md" />
         </div>
+
+        <Skeleton height={1} width="100%" className="my-3" />
+
+        <div className="mb-4">
+          <Skeleton width={100} height={20} />
+          <Skeleton width={150} height={20} />
+        </div>
+
+        <div className="mb-4">
+          <Skeleton width={120} height={20} />
+          <Skeleton count={3} height={14} />
+        </div>
+
+        <div className="mb-4">
+          <Skeleton width={140} height={20} />
+          <Skeleton count={2} height={14} />
+        </div>
+
+        <div className="flex justify-between items-center mt-6">
+          <Skeleton width={140} height={36} borderRadius={10} />
+          <Skeleton width={48} height={48} borderRadius={10} />
+        </div>
+
+        <Skeleton width={180} height={14} className="mt-4" />
       </div>
 
-      {/* Button Placeholder */}
       <div className="mt-6">
-        <div className="h-10 w-40 bg-green-300 rounded-lg shadow-lg animate-pulse flex items-center justify-center font-bold" >Loading</div>
+        <Skeleton width={200} height={48} borderRadius={14} />
       </div>
     </div>
   );

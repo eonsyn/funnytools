@@ -2,7 +2,7 @@ import React from 'react';
 
 function UnderstandDowryPractice() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-pink-50 to-pink-100 text-gray-800 px-4 py-10 sm:px-6 lg:px-32">
+    <div className=" bg-gradient-to-b from-white via-pink-50 to-pink-100 text-gray-800 px-4 py-10 sm:px-6 lg:px-32">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl font-bold text-pink-600 mb-8 text-center">
           Understanding Dowry Practices

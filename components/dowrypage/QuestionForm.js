@@ -10,6 +10,12 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 export default function QuestionForm() {
   const router = useRouter();
+  // useEffect(() => {
+  //   if (trial < 0 || trial===0) {
+  //     router.push('/get-balance');
+  //   }
+  // }, [ router]);
+  
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
    
@@ -50,12 +56,17 @@ export default function QuestionForm() {
     e.preventDefault();
     setLoading(true);
     setResponse(null);
-    if (trial < 0 || trial === 0) {
-      router.push('/get-balance');  
-      throw new Error("Insufficient balance.");
-      
-       
-    }
+   
+if (trial <= 0) {
+  toast.warn('Insufficient balance. Redirecting to get more credits...');
+
+  // Delay the redirect by 2 seconds
+  setTimeout(() => {
+    router.push('/get-balance');
+  }, 1000);
+
+  throw new Error('Insufficient balance.');
+}
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     try {
@@ -183,12 +194,12 @@ export default function QuestionForm() {
   className={`bg-pink-600 hover:bg-pink-700 cursor-pointer text-white text-lg px-8 py-3 rounded-xl transition-all duration-300 ${
     loading || trial === 0 ? 'opacity-60 cursor-not-allowed' : ''
   }`}
-  disabled={loading || trial === 0}
+  disabled={loading  }
 >
   {loading
     ? 'Calculating...'
     : trial > 0
-    ? `—1 Trial${trial > 1 ? 's' : ''}    Calculate Dowry`
+    ? `    Calculate Dowry`
     : 'Insufficient Balance'}
 </button>
 
