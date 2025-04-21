@@ -16,7 +16,7 @@ export default function NativeBanner() {
 
   return (
     <div className="w-full md:flex md:items-center md:justify-center p-6  md:w-1/2">
-      <div className="max-w-4xl mx-auto p-6 bg-white/60 rounded-xl shadow-lg space-y-6 border border-gray-200 backdrop-blur-md">
+      <div className="max-w-4xl relative h-full mx-auto p-6 bg-white/60 rounded-xl shadow-lg space-y-6 border border-gray-200 backdrop-blur-md">
         
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-800">
@@ -29,7 +29,7 @@ export default function NativeBanner() {
 
         <div
           id="container-077c1c7a577775e4f7a356ff8b0bd378"
-          className="w-full h-[250px] bg-white rounded-md shadow-inner flex items-center justify-center"
+          className="w-full transition-all duration-300 ease-in-out bg-white rounded-md shadow-inner flex items-center justify-center"
         >
           {/* Ad will be injected here */}
         </div>

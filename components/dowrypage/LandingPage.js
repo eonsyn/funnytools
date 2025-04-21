@@ -4,7 +4,7 @@ import QuestionForm from './QuestionForm'
 import { useState } from 'react'
 import Home from './Home'
 import FaqCard from './FaqCard'
-import DowryResultCard from './DowryResultCard'
+import AdVerticalBanner from '../ads/AdVerticalBanner'
 import NativeBanner from '../ads/NativeBanner'
 import PriceSection from './PriceSection'
 import AdCard from '../ads/AdCard'
@@ -32,6 +32,7 @@ function LandingPage() {
           <NativeBanner />
           <PriceSection />
         </div>
+        {/* <AdVerticalBanner/> */}
         <FaqCard />
       </div>
     </div>
