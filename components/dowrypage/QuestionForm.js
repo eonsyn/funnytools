@@ -112,7 +112,7 @@ if (trial <= 0) {
   }
 
   return (
-    <div className="max-w-5xl mx-auto md:p-6 rounded-2xl shadow-2xl bg-white/40 backdrop-blur-2xl mb-6 relative">
+    <div className="max-w-5xl mx-auto md:p-6 rounded-2xl shadow-2xl bg-white/40 backdrop-blur-2xl pb-6 relative">
 
       {/* Go Back Button */}
       {response && (

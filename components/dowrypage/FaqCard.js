@@ -23,7 +23,7 @@ const faqList = [
   
   const FaqCard = () => {
     return (
-      <section className="max-w-4xl mx-auto px-6 py-12 mt-10 rounded-2xl ">
+      <section className="max-w-4xl mx-auto px-6 py-12 pt-10 rounded-2xl    ">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-pink-600 font-secondary">
         Frequently Asked Questions
       </h2>

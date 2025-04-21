@@ -41,8 +41,8 @@ export const metadata = {
 
   export default function PrivacyPolicyPage() {
     return (
-      <main className="bg-pink-50 min-h-screen p-6 flex flex-col items-center justify-start">
-        <div className="max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+      <main className="bg-gradient-to-b from-pink-100 via-pink-50 to-white min-h-screen p-6 flex flex-col items-center justify-start">
+        <div className="max-w-3xl bg-white/60 rounded-2xl shadow-lg p-8">
           <h1 className="text-4xl font-bold text-center text-pink-700 mb-6">
             Privacy Policy
           </h1>

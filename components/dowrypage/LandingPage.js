@@ -8,6 +8,7 @@ import AdVerticalBanner from '../ads/AdVerticalBanner'
 import NativeBanner from '../ads/NativeBanner'
 import PriceSection from './PriceSection'
 import AdCard from '../ads/AdCard'
+import HowItWork from './HowItWork'
 import UnderstandDowryPractice from './UnderstandDowryPractice'
 function LandingPage() {
   const [showQeustion, setshowQeustion] = useState(false)
@@ -19,7 +20,7 @@ function LandingPage() {
     <div className='font-secondary'>
       <div className='bg-pink-100'>
 
-        <div className="page    ">
+        <div className="page   bg-gradient-to-b from-pink-100 via-pink-50 to-white  ">
           {
             showQeustion ? <QuestionForm></QuestionForm> :
               <Home closeModal={closeModal} />
@@ -33,7 +34,10 @@ function LandingPage() {
           <PriceSection />
         </div>
         {/* <AdVerticalBanner/> */}
-        <FaqCard />
+        <HowItWork showquestion={closeModal}/>
+       
+       <div className='bg-gradient-to-b from-white via-pink-50 to-pink-100'><FaqCard />
+        </div> 
       </div>
     </div>
   )
