@@ -1,42 +1,44 @@
 // app/about/page.js
 export const metadata = {
-    title: "About | Dowry Calculator Ai",
+  title: "About | Dowry Calculator AI",
+  description:
+    "Discover the story behind Dowry Calculator AI — a humorous web app that creatively challenges the outdated dowry system. Learn how laughter can spark awareness and inspire change.",
+  keywords: [
+    "about Dowry Calculator AI",
+    "anti-dowry movement",
+    "dowry awareness India",
+    "satirical dowry quiz",
+    "dowry parody app",
+    "social awareness tools",
+    "funny Indian web apps",
+    "no dowry campaign",
+  ],
+  openGraph: {
+    title: "About | Dowry Calculator AI",
     description:
-      "Learn more about Dowry Calculator Ai – a satirical web tool that parodies the dowry system through humor. Our mission is to raise awareness against dowry practices using fun and laughter.",
-    keywords: [
-      "about Dowry Calculator Ai",
-      "anti dowry app",
-      "dowry awareness",
-      "dowry satire",
-      "stop dowry in India",
-      "funny Dowry Calculator Ai",
-      "no dowry movement",
+      "Meet the minds behind Dowry Calculator AI — a witty and impactful web tool that uses satire to combat the dowry tradition and spread awareness.",
+    url: "https://dowryai.netlify.app/about",
+    siteName: "Dowry Calculator AI",
+    images: [
+      {
+        url: "https://dowryai.netlify.app/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "About Dowry Calculator AI",
+      },
     ],
-    openGraph: {
-      title: "About | Dowry Calculator Ai",
-      description:
-        "Know the story behind Dowry Calculator Ai — a creative, funny, and powerful way to mock the outdated dowry system and promote change.",
-      url: "https://dowryai.netlify.app/about",
-      siteName: "Dowry Calculator Ai",
-      images: [
-        {
-          url: "https://dowryai.netlify.app/preview.png",
-          width: 1200,
-          height: 630,
-          alt: "Dowry Calculator Ai About Page",
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "About | Dowry Calculator Ai",
-      description:
-        "Dowry Calculator Ai is a satirical personality quiz that raises awareness against the dowry system in India. Learn more about our mission.",
-      images: ["https://dowryai.netlify.app/preview.png"],
-    },
-    metadataBase: new URL("https://dowryai.netlify.app"), // Replace with your domain
-  };
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Dowry Calculator AI",
+    description:
+      "Dowry Calculator AI is more than a funny quiz — it's a creative protest against outdated traditions. Learn about our purpose and vision.",
+    images: ["https://dowryai.netlify.app/preview.png"],
+  },
+  metadataBase: new URL("https://dowryai.netlify.app"),
+};
+
   
   export default function AboutPage() {
     return (

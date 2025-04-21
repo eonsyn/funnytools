@@ -1,41 +1,44 @@
 // app/privacy/page.js
 export const metadata = {
-    title: "Privacy Policy | Dowry Calculator Ai",
+  title: "Privacy Policy | Dowry Calculator AI",
+  description:
+    "Review the Privacy Policy of Dowry Calculator AI — a satirical web app raising awareness against the dowry system. Learn how we collect, use, and protect your data responsibly.",
+  keywords: [
+    "privacy policy",
+    "Dowry Calculator AI privacy",
+    "data protection",
+    "satirical web app privacy",
+    "anti-dowry initiative",
+    "privacy policy India",
+    "data usage transparency",
+    "funny quiz app privacy"
+  ],
+  openGraph: {
+    title: "Privacy Policy | Dowry Calculator AI",
     description:
-      "Read the Privacy Policy of Dowry Calculator Ai, a satirical tool aimed at raising awareness against dowry. Learn how we handle your data and protect your privacy.",
-    keywords: [
-      "privacy policy",
-      "Dowry Calculator Ai privacy",
-      "anti dowry app privacy",
-      "privacy policy India",
-      "dowry awareness tool",
+      "Understand how Dowry Calculator AI collects and manages user data while keeping your privacy intact. A transparent look into our privacy practices.",
+    url: "https://dowryai.netlify.app/privacy",
+    siteName: "Dowry Calculator AI",
+    images: [
+      {
+        url: "https://dowryai.netlify.app/privacy-policy-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Dowry Calculator AI Privacy Policy Overview",
+      },
     ],
-    openGraph: {
-      title: "Privacy Policy | Dowry Calculator Ai",
-      description:
-        "Privacy policy for Dowry Calculator Ai website. Learn how we handle data and ensure your privacy while using our satirical tool.",
-      url: "https://dowryai.netlify.app/privacy",
-      siteName: "Dowry Calculator Ai",
-      images: [
-        {
-          url: "hhttps://dowryai.netlify.app/privacy-policy-image.jpg",
-          width: 1200,
-          height: 630,
-          alt: "Privacy Policy Dowry Calculator Ai",
-        },
-      ],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Privacy Policy | Dowry Calculator Ai",
-      description:
-        "Learn about the privacy policy for Dowry Calculator Ai, a fun tool to raise awareness against dowry.",
-      images: ["https://dowryai.netlify.app/privacy-policy-image.jpg"],
-    },
-    metadataBase: new URL("https://dowryai.netlify.app/"), // Replace with your domain
-  };
-  
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Dowry Calculator AI",
+    description:
+      "Find out how Dowry Calculator AI handles your information. Transparency and privacy in a light-hearted, educational tool.",
+    images: ["https://dowryai.netlify.app/privacy-policy-image.jpg"],
+  },
+  metadataBase: new URL("https://dowryai.netlify.app"),
+};
+
   export default function PrivacyPolicyPage() {
     return (
       <main className="bg-pink-50 min-h-screen p-6 flex flex-col items-center justify-start">

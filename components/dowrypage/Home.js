@@ -14,7 +14,8 @@ function Home({ closeModal }) {
         <div className="flex items-center justify-center">
           <div className="flex items-center gap-2 bg-amber-100 text-black px-4 py-2 rounded-full shadow-sm text-sm font-primary">
             <RiRobot3Fill className="text-lg" />
-            <span>Your AI dowry expert has entered the chat</span>
+            <span >What are you worth in
+            today’s marriage market ?</span>
             <WiStars className="text-lg" />
           </div>
         </div>
