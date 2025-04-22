@@ -28,3 +28,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.export-cleanup * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.export-cleanup li {
+  list-style-type: disc !important;
+  border: none !important;
+  outline: none !important;
+}
