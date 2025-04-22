@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
+import profile from '@/public/profile-placeholder.png'
 import { toPng } from 'html-to-image';
-
-
 import { QRCodeCanvas } from 'qrcode.react';
 
 const formatText = (text) => {
@@ -24,14 +24,12 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
- 
   const downloadCard = async () => {
     const cardElement = cardRef.current;
     if (!cardElement) return;
-  
-    // Add a temporary class to clean up styles
+
     cardElement.classList.add('export-cleanup');
-  
+
     try {
       const dataUrl = await toPng(cardElement, {
         backgroundColor: 'white',
@@ -40,7 +38,7 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
           transformOrigin: 'top left',
         },
       });
-  
+
       const link = document.createElement('a');
       link.href = dataUrl;
       link.download = 'dowry-card.png';
@@ -48,29 +46,28 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
     } catch (error) {
       console.error('Export failed', error);
     } finally {
-      // Remove the cleanup class
       cardElement.classList.remove('export-cleanup');
     }
   };
-  
-
 
   if (!response) return null;
 
   return (
-    <div className="flex flex-col items-center min-h-screen w-full">
-      <div ref={cardRef} className="w-full max-w-md p-4 rounded-2xl mx-auto">
-        <div className="p-6 bg-white border-2 border-gray-300 shadow-md rounded-xl font-sans">
+    <div className="flex items-center justify-center min-h-screen w-full px-2  ">
+      <div className="flex flex-col items-center gap-6">
+        <div ref={cardRef} className="w-full max-w-md p-4 rounded-2xl bg-gradient-to-b from-pink-100 via-pink-50 to-white  border-2 border-gray-300 shadow-md">
           {/* Profile section */}
-          <div className="flex items-center gap-2 pb-2">
-            <div className="w-16 h-16 bg-red-900 rounded-full" />
+          <div className="flex items-center gap-3 pb-2">
+            <div className="w-16 overflow-hidden h-16 bg-red-900 rounded-full" >
+              <Image src={profile}></Image>
+            </div>
             <div>
-              <h2 className="text-xl font-semibold text-gray-800">{name}</h2>
-              <p className="text-sm text-gray-600">{profession}singh</p>
+              <h2 className="text-xl font-semibold text-gray-800">{name} </h2>
+              <p className="text-sm text-gray-600">{profession}</p>
             </div>
           </div>
 
-          <hr />
+          <hr className="my-2" />
 
           {/* Dowry Info */}
           <div className="text-red-900 font-medium mb-2">
@@ -79,22 +76,23 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
           </div>
 
           {/* Conditions */}
-          <div className="text-black text-sm mb-2">
-            <p>
+          <div className="text-black text-sm mb-2 space-y-2">
+            <div>
               <span className="font-bold text-lg font-serif">Condition:</span>
-              <ul className="list-disc pl-4">
+              <ul className="list-disc pl-5 mt-1">
                 {Object.entries(response.recommended_dowry).map(([key, value]) => (
                   <li key={key} dangerouslySetInnerHTML={{ __html: formatText(value) }} />
                 ))}
               </ul>
-            </p>
-            <p>
+            </div>
+
+            <div>
               <span className="font-bold text-lg font-serif">Random person:</span>
               <span
-                className="block"
+                className="block mt-1"
                 dangerouslySetInnerHTML={{ __html: formatText(response.reasoning) }}
               />
-            </p>
+            </div>
           </div>
 
           {/* Button & QR */}
@@ -113,13 +111,11 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
             Do not accept or give dowry
           </p>
         </div>
-      </div>
 
-      {/* Download Button */}
-      <div className="mt-6 flex justify-center">
+        {/* Download Button */}
         <button
           onClick={downloadCard}
-          className="bg-green-400 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
+          className="bg-green-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
         >
           Download Card
         </button>
