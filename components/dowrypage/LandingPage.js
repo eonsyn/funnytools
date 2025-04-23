@@ -20,7 +20,7 @@ function LandingPage() {
     <div className='font-secondary'>
       <div className='bg-pink-100'>
 
-        <div className="page   bg-gradient-to-b from-pink-100 via-pink-50 to-white  ">
+        <div className={`page ${showQeustion ? 'pb-20 ' : ''} bg-gradient-to-b from-pink-100 via-pink-50 to-white`}  >
           {
             showQeustion ? <QuestionForm></QuestionForm> :
               <Home closeModal={closeModal} />

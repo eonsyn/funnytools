@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import TrialInitializer from '@/components/TrialInitializer';
 import DowryButton from './DowryButton';
-
+import { IoMdAdd } from "react-icons/io";
 import {  useTrialState } from '@/lib/redux/slices/trialSlice';
 import {   useSelector } from 'react-redux';
 import Link from 'next/link';
@@ -61,7 +61,7 @@ function Navbar() {
       <div
       className={`
         px-4 py-2 rounded-xl 
-        font-semibold text-sm md:text-base 
+        font-semibold text-sm flex items-center  md:text-base 
         border ${borderClass} 
         ${colorClass}
         transition-all duration-300 ease-in-out
@@ -69,6 +69,13 @@ function Navbar() {
     >
       <span className="text-gray-700 mr-1">Balance:</span>
       <span className="font-bold">{trial}</span>
+      <Link href={"/get-balance"}> <button
+        className="bg-pink-500 ml-1 cursor-pointer hover:bg-pink-600 text-white font-semibold p-0.5 rounded-full transition-all"
+        
+       
+      >
+        <IoMdAdd   className=" font-extrabold" />
+      </button></Link>
     </div>
       <button onClick={toggleMenu}>
           {isMenuOpen ? (

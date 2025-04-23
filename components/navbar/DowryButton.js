@@ -3,6 +3,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // for client-side routing
+import { IoMdAdd } from "react-icons/io";
+import Link from 'next/link';
 import { addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
 import { toast, ToastContainer } from 'react-toastify';
 export default function DowryButton() {
@@ -52,13 +54,14 @@ toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
         Balance: <span className="text-pink-600">{trial}</span>
       </div>
 
-      <button
-        className="bg-pink-500 cursor-pointer hover:bg-pink-600 text-white font-semibold p-1 rounded-xl transition-all"
-        onClick={handleRegainClick}
-        title={`${5 - clicks} more clicks to unlock trials`}
+      <Link href={"/get-balance"}> <button
+        className="bg-pink-500 cursor-pointer hover:bg-pink-600 text-white font-semibold p-1 rounded-full transition-all"
+        
+       
       >
-        {clicks < 5 ? `+5 Get Trials` : 'Unlocking...'}
-      </button>
+        <IoMdAdd   className="text-xl font-extrabold" />
+      </button></Link>
+     
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
   if (!response) return null;
 
   return (
-    <div className="flex items-center justify-center min-h-screen w-full px-2  ">
+    <div className="flex items-center justify-center   w-full px-2  ">
       <div className="flex flex-col items-center gap-6">
         <div ref={cardRef} className="w-full max-w-md p-4 rounded-2xl bg-gradient-to-b from-pink-100 via-pink-50 to-white  border-2 border-gray-300 shadow-md">
           {/* Profile section */}
