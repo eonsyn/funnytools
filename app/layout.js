@@ -34,6 +34,8 @@ export default function RootLayout({ children }) {
 
 
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2404358914933411"
+     crossorigin="anonymous"></script>
        </head>
       <body className='font-secondary bg-pink-100'>
         <Providers>
