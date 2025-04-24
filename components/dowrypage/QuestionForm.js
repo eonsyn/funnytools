@@ -124,10 +124,10 @@ export default function QuestionForm() {
         <div className='relative'>
           <button
             onClick={handleResponse}
-            className="flex absolute left-2 md:left-0 top-0 cursor-pointer items-center gap-2 text-white bg-red-500 hover:bg-red-600 px-4 py-2 rounded-lg mb-4"
+            className="flex absolute left-2 md:left-0 top-0 cursor-pointer items-center gap-2 text-white bg-red-500 hover:bg-red-600 px-2.5 md:px-4 py-2 rounded-full md:rounded-lg mb-4"
           >
             <FaArrowLeft />
-            Go Back
+           <span className='hidden md:block '> Go Back</span>
           </button>
           <h2 className="text-3xl font-extrabold text-center text-pink-600 mb-6">
             {response ? 'Your Dowry' : 'Dowry Calculator'}
