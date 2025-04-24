@@ -23,13 +23,19 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
-
+  function openInNewTab() {
+    if (typeof window !== 'undefined') {
+      const url = "https://compassionunsuccessful.com/czi8fbb4z?key=d9474338a61d90a58a9821e5bc2f6028";
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  }
+  
   const downloadCard = async () => {
     const cardElement = cardRef.current;
     if (!cardElement) return;
-
+  
     cardElement.classList.add('export-cleanup');
-
+  
     try {
       const dataUrl = await toPng(cardElement, {
         backgroundColor: 'white',
@@ -38,18 +44,21 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
           transformOrigin: 'top left',
         },
       });
-
+  
       const link = document.createElement('a');
       link.href = dataUrl;
-      link.download = 'dowry-card.png';
+      link.download = `${name}-dowry-card.png`;
       link.click();
     } catch (error) {
       console.error('Export failed', error);
     } finally {
       cardElement.classList.remove('export-cleanup');
     }
+  
+    // 👇 Open the link after the download
+    openInNewTab();
   };
-
+  
   if (!response) return null;
 
   return (

@@ -44,7 +44,6 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </Providers>
-        <script type='text/javascript' src='//compassionunsuccessful.com/6a/d6/27/6ad627273f9dd4f6c6e035c5e56300f8.js'></script>
       </body>
     </html>
   );
