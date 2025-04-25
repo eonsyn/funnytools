@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="a519RGXXnU8_HDFGvb_9NLkro6BAy_BnCXPq8fhFTkY"
         />
-
+<meta name="msvalidate.01" content="68F9A32774479A1C4618586A9D223B7D" />
         {/* ✅ Google Analytics Tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBQK12HPYQ"></script>
         <script
