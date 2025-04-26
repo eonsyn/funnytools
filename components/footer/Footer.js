@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FaFacebookF, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn  } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -57,13 +57,13 @@ const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://wa.me/?text=Try%20this%20crazy%20dowry%20calculator!%20https://dowrycalc3000.com"
+              href="https://www.linkedin.com/in/aryansingh0 "
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-green-400 transition-transform duration-200 hover:scale-110"
+              className="hover:text-blue-400 transition-transform duration-200 hover:scale-110"
               aria-label="WhatsApp"
             >
-              <FaWhatsapp />
+              <FaLinkedinIn  />
             </a>
           </div>
         </div>
