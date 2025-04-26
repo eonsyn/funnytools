@@ -61,7 +61,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400 transition-transform duration-200 hover:scale-110"
-              aria-label="WhatsApp"
+              aria-label="Linkedin"
             >
               <FaLinkedinIn  />
             </a>

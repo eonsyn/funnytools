@@ -2,7 +2,7 @@
 import React  from 'react' 
 import LandingPage from '@/components/dowrypage/LandingPage';
 export const metadata = {
-  title: "Dowry Calculator |Indian Dowry Calculator",
+  title: "Dowry Calculator",
   description:
   "100% working dowry calculato",
   keywords: [
