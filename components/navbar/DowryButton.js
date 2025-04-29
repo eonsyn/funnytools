@@ -4,9 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'; // for client-side routing
 import { IoMdAdd } from "react-icons/io";
+import { GoPlusCircle } from "react-icons/go";
 import Link from 'next/link';
+import { CiCircleChevUp } from "react-icons/ci";
 import { addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
 import { toast, ToastContainer } from 'react-toastify';
+import { ImPower } from "react-icons/im";
 export default function DowryButton() {
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
@@ -44,22 +47,23 @@ toast.warn(`only ${4 - clicks} more clicks to unlock trials`)
 // "flex items-center gap-4 p-2 rounded-lg bg-white shadow"
   return (
     <div className={`
-      px-4 py-2 rounded-xl flex items-center gap-4
+      px-4 py-0.5 rounded-xl flex items-center gap-4
       font-semibold text-sm md:text-base 
       border ${borderClass} 
       ${colorClass}
       transition-all duration-300 ease-in-out
     `}>
-      <div className="text-xl font-semibold text-gray-800">
-        Balance: <span className="text-pink-600">{trial}</span>
+      <div className="text-xl flex items-center gap-1 font-semibold text-gray-800">
+        <ImPower/> <span className="text-pink-600">{trial}</span>
       </div>
 
-      <Link href={"/get-balance"}> <button
-        className="bg-pink-500 cursor-pointer hover:bg-pink-600 text-white font-semibold p-1 rounded-full transition-all"
+      <Link href={"/get-balance"} className='flex items-center justify-center'> <button
+        className=" cursor-pointer text-white font-semibold p-0.5 rounded-full transition-all"
         
        
       >
-        <IoMdAdd   className="text-xl font-extrabold" />
+     
+        <GoPlusCircle   className="text-xl hover:scale-105 text-black font-extrabold" />
       </button></Link>
      
     </div>

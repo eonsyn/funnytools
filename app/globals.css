@@ -1,32 +1,44 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Laila:wght@300;400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@100..900&display=swap');
+
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffd0f7;
-  --foreground: #000000;
-  --font-primary:Inter;
-  --font-secondary:Laila;
+  --background: #ffc0cb;
+  --foreground: #5C4033;
+  --button:#f78da7;
+  --buttonhover:#ff1d96;
+  --card:#ffe4ec;
+  --font-inter:'Inter';
+  --font-laila:'Laila';
+  --font-noto:'Noto Serif Thai';
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-primary: var(--font-primary);
-  --font-secondary: var(--font-secondary);
+  --color-card:var(--card);
+  --color-button:var(--button);
+  --color-buttonhover:var(--buttonhover);
+  --font-primary: var(--font-laila);
+  --font-secondary: var(--font-noto);
+   
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #5C4033;
   }
 }
 
 body {
  
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-laila);
 }
 .export-cleanup * {
   outline: none !important;
@@ -37,4 +49,13 @@ body {
   list-style-type: disc !important;
   border: none !important;
   outline: none !important;
+}
+
+ /* globals.css or any css file you import */
+.mask-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.inset-shadow {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }

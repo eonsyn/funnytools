@@ -5,14 +5,21 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import TrialInitializer from '@/components/TrialInitializer';
 import DowryButton from './DowryButton';
 import { IoMdAdd } from "react-icons/io";
-import {  useTrialState } from '@/lib/redux/slices/trialSlice';
-import {   useSelector } from 'react-redux';
+import { useTrialState } from '@/lib/redux/slices/trialSlice';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '@/public/preview.png';
+import Logo from '@/public/logo.png';
+import { usePathname } from 'next/navigation';
 
 function Navbar() {
- 
+  const pathname = usePathname(); 
+   const navpaths = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Privacy", path: "/privacy" },
+  ];
+
   const trial = useSelector(useTrialState);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -29,25 +36,41 @@ function Navbar() {
   }
 
   return (
-    <nav className="w-full z-40 h-14 sticky top-0 bg-pink-100/70 backdrop-blur-md flex items-center justify-between px-4 md:px-6  ">
- 
-      {/* Logo */}
-      <div className="flex items-center gap-2">
-        <Image src={Logo} height={36} alt="Logo" />
-        
-      </div>
+    <nav className="w-full z-40 h-12 sticky top-0 bg-pink-100/70 backdrop-blur-md flex items-center justify-between px-4 md:px-6  ">
 
+      {/* Logo */}
+      <div className="flex items-center min-w-[15%]   font-semibold text-2xl text-pink-600  gap-2">
+<Link className="flex items-center" href={'/'}>        {/* <Image src={Logo} height={36} alt="Logo" /> */}
+<Image src={Logo} height={30} width={30} alt="Logo"></Image>
+        DowryAi
+        </Link>
+      </div>
+      {/* center naviagtaion menu here  */}
+      <div className='w-[50%]  h-full hidden md:flex items-center  justify-evenly '>
+      {navpaths.map((nav, index) => (
+        <div key={index}>
+           <Link
+           
+          href={nav.path}
+          className="relative text-lg text-pink-600 "
+        >
+          <span
+            className={`relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-600 after:transition-all after:duration-300 ${
+              pathname === nav.path
+                ? "after:w-full" // If current route, show full underline
+                : "after:w-0 hover:after:w-full" // Else animate underline on hover
+            }`}
+          >
+            {nav.name}
+          </span>
+        </Link>
+        </div>
+       
+      ))}
+      </div>
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-6">
-        <Link href="/" className="text-lg text-pink-600 hover:text-pink-800">
-          Home
-        </Link>
-        <Link href="/about" className="text-lg text-pink-600 hover:text-pink-800">
-          About
-        </Link>
-        <Link href="/privacy" className="text-lg text-pink-600 hover:text-pink-800">
-          Privacy
-        </Link>
+      <div className="hidden md:flex justify-center items-center min-w-[15%]  h-full ">
+
 
         {/* Dowry Button on Desktop */}
         <TrialInitializer>
@@ -57,27 +80,27 @@ function Navbar() {
 
       {/* Mobile Menu Toggle */}
       <div className="md:hidden flex items-center gap-1">
-      
-      <div
-      className={`
+
+        <div
+          className={`
         px-4 py-2 rounded-xl 
         font-semibold text-sm flex items-center  md:text-base 
         border ${borderClass} 
         ${colorClass}
         transition-all duration-300 ease-in-out
       `}
-    >
-      <span className="text-gray-700 mr-1">Balance:</span>
-      <span className="font-bold">{trial}</span>
-      <Link href={"/get-balance"}> <button
-        className="bg-pink-500 ml-1 cursor-pointer hover:bg-pink-600 text-white font-semibold p-0.5 rounded-full transition-all"
-        
-       
-      >
-        <IoMdAdd   className=" font-extrabold" />
-      </button></Link>
-    </div>
-      <button onClick={toggleMenu}>
+        >
+          <span className="text-gray-700 mr-1">Balance:</span>
+          <span className="font-bold">{trial}</span>
+          <Link href={"/get-balance"}> <button
+            className="bg-pink-500 ml-1 cursor-pointer hover:bg-pink-600 text-white font-semibold p-0.5 rounded-full transition-all"
+
+
+          >
+            <IoMdAdd className=" font-extrabold" />
+          </button></Link>
+        </div>
+        <button onClick={toggleMenu}>
           {isMenuOpen ? (
             <FaTimes className="text-2xl text-pink-600" />
           ) : (
