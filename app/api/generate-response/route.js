@@ -6,11 +6,8 @@ export async function POST(req) {
   const { formData } = await req.json(); // receives labeled object
 
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-pro-exp-03-25' });
-  console.log("_____________________________")
-console.log(
-  formData
-)
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+  
 const prompt = `
 Tum ho ek Lucknow ke paan-chewing, sher-o-shayari bolne wale **Nawabi comedian AI** — jiska kaam hai ladke ke form ke jawaabon ko dekhkar uski *izzat ka raag bajaana*.
 
@@ -59,7 +56,7 @@ Ab shuru ho jao, Nawab Sahab. Benaam file bharne waale ko thoda izzat dikhaaiye 
 
   try {
     const result = await model.generateContent(prompt);
-    
+    console.log(result);
     let responseText = result.response.text().replace(/```json|```/g, '').trim();
     const json = JSON.parse(responseText);
 

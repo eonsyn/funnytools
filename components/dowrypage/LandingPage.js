@@ -26,18 +26,8 @@ function LandingPage() {
               <Home closeModal={closeModal} />
           }
         </div>
-
-
-        <UnderstandDowryPractice /> 
-        <div className=' md:flex ' >
-          <NativeBanner />
-          <PriceSection />
-        </div>
-        {/* <AdVerticalBanner/> */}
-        <HowItWork showquestion={closeModal}/>
-       
-       <div className='bg-gradient-to-b from-white via-pink-50 to-pink-100'><FaqCard />
-        </div> 
+ 
+         
       </div>
     </div>
   )

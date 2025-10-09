@@ -69,37 +69,12 @@ function Navbar() {
       ))}
       </div>
       {/* Desktop Menu */}
-      <div className="hidden md:flex justify-center items-center min-w-[15%]  h-full ">
-
-
-        {/* Dowry Button on Desktop */}
-        <TrialInitializer>
-          <DowryButton />
-        </TrialInitializer>
-      </div>
+      
 
       {/* Mobile Menu Toggle */}
       <div className="md:hidden flex items-center gap-1">
 
-        <div
-          className={`
-        px-4 py-2 rounded-xl 
-        font-semibold text-sm flex items-center  md:text-base 
-        border ${borderClass} 
-        ${colorClass}
-        transition-all duration-300 ease-in-out
-      `}
-        >
-          <span className="text-gray-700 mr-1">Balance:</span>
-          <span className="font-bold">{trial}</span>
-          <Link href={"/get-balance"}> <button
-            className="bg-pink-500 ml-1 cursor-pointer hover:bg-pink-600 text-white font-semibold p-0.5 rounded-full transition-all"
-
-
-          >
-            <IoMdAdd className=" font-extrabold" />
-          </button></Link>
-        </div>
+        
         <button onClick={toggleMenu}>
           {isMenuOpen ? (
             <FaTimes className="text-2xl text-pink-600" />

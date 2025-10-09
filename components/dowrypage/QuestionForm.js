@@ -62,16 +62,7 @@ export default function QuestionForm() {
     setLoading(true);
     setResponse(null);
 
-    if (trial <= 0) {
-      toast.warn('Insufficient balance. Redirecting to get more credits...');
-
-      // Delay the redirect by 2 seconds
-      setTimeout(() => {
-        router.push('/get-balance');
-      }, 1000);
-
-      throw new Error('Insufficient balance.');
-    }
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     try {
@@ -81,14 +72,11 @@ export default function QuestionForm() {
         body: JSON.stringify({ formData }),
       });
 
-      const json = await res.json();
-      openInNewTab();
+      const json = await res.json(); 
       setResponse(json);
-      console.log(json)
-      handleUseTrial();
+      console.log(json) 
     } catch (error) {
-      console.error('Error generating response:', error);
-      toast.error('Insufficient credit 😢');
+      console.error('Error generating response:', error); 
     } finally {
       setLoading(false);
 
