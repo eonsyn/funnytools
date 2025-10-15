@@ -17,6 +17,7 @@ function Navbar() {
    const navpaths = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    {name:"People Dowry",path:"/other-dowry"},
     { name: "Privacy", path: "/privacy" },
   ];
 
