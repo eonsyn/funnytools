@@ -38,25 +38,13 @@ export default function QuestionForm() {
 
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
-  const handleUseTrial = () => {
-    if (trial > 0) {
-      dispatch(decrementTrial());
-
-    } else {
-      toast.warn('Insufficient balance. Click button regain access.');
-    }
-  };
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  function openInNewTab() {
-    if (typeof window !== 'undefined') {
-      const url = "https://compassionunsuccessful.com/czi8fbb4z?key=d9474338a61d90a58a9821e5bc2f6028";
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
-  }
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);

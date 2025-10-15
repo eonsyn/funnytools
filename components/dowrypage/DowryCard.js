@@ -54,9 +54,6 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
     } finally {
       cardElement.classList.remove('export-cleanup');
     }
-  
-    // 👇 Open the link after the download
-    openInNewTab();
   };
   
   if (!response) return null;
