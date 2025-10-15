@@ -84,16 +84,16 @@ export default function ImageSection({closeModal}) {
           </div>
 
           <div className="Descriptionsection  md:h-full py-6 md:py-3  w-full md:w-[35%]">
-            <p className='text-start pr-4 font-primary text-3xl md:text-xl  md:leading-5 leading-8 '>
+            <p className='text-start pr-4 font-primary text-sm md:text-xl  md:leading-5 leading-8 '>
               {/* Who said love has a price tag? <br /> */}
                Let’s calculate the dowry and prove them wrong. Click below!</p>
              
-            <div className="flex justify-center items-center h-20  mt-4  ">
+            <div className="flex justify-center  mt-3 md:mt-0items-center h-20  mt-4  ">
               <button
                 onClick={closeModal}
-                className="relative cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white   transition-all duration-300 ease-out rounded-2xl shadow-lg group px-20 md:px-8 md:py-3 py-6   md:text-lg text-2xl border border-black   bg-buttonhover   "
+                className="relative animate-bounce cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white   transition-all duration-300 ease-out rounded-2xl shadow-lg group px-20 md:px-8 md:py-3 py-6   md:text-lg text-xl shadow border border-black   bg-buttonhover   "
               >
-                <span className="absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 translate-y-0   opacity-10 group-hover:translate-x-full group-hover:opacity-0 rounded-2xl"></span>
+                
                 <span className="relative z-10 transisition-all duration-300 ease-out group-hover:text-xl  text-white font-primary">Calculate Now</span>
               </button>
 

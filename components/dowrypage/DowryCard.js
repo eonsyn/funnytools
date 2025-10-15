@@ -5,7 +5,7 @@ import Image from 'next/image';
 import profile from '@/public/profile-placeholder.png'
 import { toPng } from 'html-to-image';
 import { QRCodeCanvas } from 'qrcode.react';
-
+import Link from 'next/link';
 const formatText = (text) => {
   if (!text) return null;
   text = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
@@ -23,12 +23,7 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
     window.addEventListener('resize', checkScreenSize);
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
-  function openInNewTab() {
-    if (typeof window !== 'undefined') {
-      const url = "https://compassionunsuccessful.com/czi8fbb4z?key=d9474338a61d90a58a9821e5bc2f6028";
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
-  }
+ 
   
   const downloadCard = async () => {
     const cardElement = cardRef.current;
@@ -119,12 +114,22 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
         </div>
 
         {/* Download Button */}
-        <button
-          onClick={downloadCard}
-          className="bg-green-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 transition-transform"
-        >
-          Download Card
-        </button>
+       <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+  <button
+    onClick={downloadCard}
+    className="flex-1 bg-green-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-green-600 transition-transform duration-200"
+  >
+    Download Card
+  </button>
+
+  <Link
+    href="/other-dowry"
+    className="flex-1 flex justify-center items-center bg-pink-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-pink-600 transition-transform duration-200"
+  >
+    View Other Dowry Cards
+  </Link>
+</div>
+
       </div>
     </div>
   );

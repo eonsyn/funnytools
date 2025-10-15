@@ -56,7 +56,7 @@ Ab shuru ho jao, Nawab Sahab. Benaam file bharne waale ko thoda izzat dikhaaiye 
 
   try {
     const result = await model.generateContent(prompt);
-    console.log(result);
+     
     let responseText = result.response.text().replace(/```json|```/g, '').trim();
     const json = JSON.parse(responseText);
 
