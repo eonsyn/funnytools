@@ -1,12 +1,9 @@
 import OtherDowryGrid from "./OtherDowryGrid";
 
-export const revalidate = 60; // ISR
-
 export default async function OtherDowryPage() {
-  // Pre-fetch first 2 pages for faster load
   const fetchPage = async (page) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dowry/history?page=${page}`, {
-      next: { revalidate: 60 },
+      cache: "no-store", // ensures fetch happens at runtime, not build
     });
     if (!res.ok) throw new Error("Failed to fetch");
     const json = await res.json();
