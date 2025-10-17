@@ -6,7 +6,7 @@ import DowryCardSkeleton from './DowryCardSkeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementTrial, addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
 import { useRouter } from 'next/navigation';
-
+import Link from 'next/link';
 import { toast } from 'react-toastify';
 export default function QuestionForm() {
   const router = useRouter();
@@ -39,7 +39,7 @@ export default function QuestionForm() {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
  
-
+  const [close,setClose]=useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -94,8 +94,29 @@ export default function QuestionForm() {
   }
 
   return (
-    <div className="max-w-5xl   mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
-
+    <div className="max-w-5xl  bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
+{!close && (
+        <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-center text-lg font-medium relative">
+          Wish your friend a Happy Diwali… with a roasting twist! 
+          <br />
+          <Link
+            href="https://wishbuddy.netlify.app/diwali"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white animate-bounce bg-pink-600 px-4 py-2 rounded-md hover:underline mt-2 inline-block"
+            onClick={() => setClose(true)}
+          >
+            Go to WishBuddy
+          </Link>
+          {/* Optional close 'X' button */}
+          <button
+            onClick={() => setClose(true)}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 font-bold"
+          >
+            ×
+          </button>
+        </div>
+      )}
       {response && (
         <div className='relative'>
           <button
@@ -119,7 +140,7 @@ export default function QuestionForm() {
         <DowryCard clearResponse={handleResponse} name={formData.name} dowry={response?.dowry}
           condition={response?.condition} profession={formData.profession} response={response} />
       ) : (
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black px-4 pt-4 md:px-2">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6   text-black px-4 pt-4 md:px-2">
           {/* Your Name */}
           <div>
             <label className="block font-semibold mb-1">Your Name</label>
@@ -129,7 +150,7 @@ export default function QuestionForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 border border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
           </div>
 
@@ -143,7 +164,7 @@ export default function QuestionForm() {
                 value={formData.education}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border  border-pink-400 ring-1  rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               >
                 <option value="">Select</option>
                 <option>High School</option>
@@ -163,7 +184,7 @@ export default function QuestionForm() {
                 value={formData.maritalStatus}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border  border-pink-400 ring-1  rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               >
                 <option value="">Select</option>
                 <option>Single</option>
@@ -183,7 +204,7 @@ export default function QuestionForm() {
               value={formData.profession}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
           </div>
 
@@ -200,7 +221,7 @@ export default function QuestionForm() {
                 value={formData.salary}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               />
             </div>
 
@@ -212,7 +233,7 @@ export default function QuestionForm() {
                 value={formData.skinTone}
                 onChange={handleChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               >
                 <option value="">Select</option>
                 <option>Fair</option>
@@ -233,7 +254,7 @@ export default function QuestionForm() {
               value={formData.location}
               onChange={handleChange}
               required
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
           </div>
 
@@ -292,7 +313,7 @@ export default function QuestionForm() {
               name="expectations"
               value={formData.expectations}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
               rows="3"
             />
           </div>
@@ -301,8 +322,7 @@ export default function QuestionForm() {
           <div className="md:col-span-2 text-center mt-4">
             <button
               type="submit"
-              className={`bg-pink-600 hover:bg-pink-700 text-white text-lg px-10 py-3 rounded-xl shadow-lg transition-all duration-300 ${loading || trial === 0 ? 'opacity-60 cursor-not-allowed' : ''
-                }`}
+              className={`bg-pink-600 hover:bg-pink-700 text-white text-lg px-10 py-3 rounded-xl shadow-lg transition-all duration-300  animate-bounce cursor-pointer`}
               disabled={loading}
             >
               {loading

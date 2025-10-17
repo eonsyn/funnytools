@@ -88,7 +88,7 @@ export default function ImageSection({closeModal}) {
               {/* Who said love has a price tag? <br /> */}
                Let’s calculate the dowry and prove them wrong. Click below!</p>
              
-            <div className="flex justify-center  mt-3 md:mt-0items-center h-20  mt-4  ">
+            <div className="flex justify-center   items-center h-20  mt-6  ">
               <button
                 onClick={closeModal}
                 className="relative animate-bounce cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white   transition-all duration-300 ease-out rounded-2xl shadow-lg group px-20 md:px-8 md:py-3 py-6   md:text-lg text-xl shadow border border-black   bg-buttonhover   "
