@@ -6,7 +6,7 @@ import DowryCardSkeleton from './DowryCardSkeleton';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementTrial, addTrials, useTrialState } from '@/lib/redux/slices/trialSlice';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+
 import { toast } from 'react-toastify';
 export default function QuestionForm() {
   const router = useRouter();
@@ -95,28 +95,7 @@ export default function QuestionForm() {
 
   return (
     <div className="max-w-5xl  bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
-{!close && (
-        <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-center text-lg font-medium relative">
-          Wish your friend a Happy Diwali… with a roasting twist! 
-          <br />
-          <Link
-            href="https://wishbuddy.netlify.app/diwali"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white animate-bounce bg-pink-600 px-4 py-2 rounded-md hover:underline mt-2 inline-block"
-            onClick={() => setClose(true)}
-          >
-            Go to WishBuddy
-          </Link>
-          {/* Optional close 'X' button */}
-          <button
-            onClick={() => setClose(true)}
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 font-bold"
-          >
-            ×
-          </button>
-        </div>
-      )}
+
       {response && (
         <div className='relative'>
           <button
