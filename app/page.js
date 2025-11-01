@@ -61,9 +61,9 @@ function page() {
   🎁 Surprise! You can also check out what other people’s <strong>Dowry Cards</strong> look like  
   <Link 
     href="/other-dowry" 
-    className="text-white mt-2 md:mt-0 bg-pink-700 p-2 font-semibold hover:underline  rounded-md ml-2 transition"
+    className="p-3"
   >
-   <button> See Other Dowry Cards </button>
+   <button className='text-white mt-2 md:mt-0 bg-pink-700 p-2 font-semibold hover:underline  rounded-md ml-2 transition'> See Other Dowry Cards </button>
   </Link>
 </div>
       <UnderstandDowryPractice />
