@@ -20,7 +20,7 @@ function LandingPage() {
 
   }
   return (
-    <div className='font-secondary pt-10 bg-gradient-to-b from-pink-100 via-pink-50 to-white '>
+    <div className='font-secondary  bg-gradient-to-b from-pink-100 via-pink-50 to-white '>
       {!close && (
         <div className="px-4">
           <div className="relative flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-100 via-amber-50 to-yellow-100 border border-amber-300 rounded-xl shadow-sm py-2 px-3 text-xs sm:text-sm font-medium text-amber-800">

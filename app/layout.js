@@ -70,7 +70,10 @@ export default function RootLayout({ children }) {
         <Providers>
               <Navbar /> 
        <ToastContainer/>
+       <main className="pt-10">
+        
           {children}
+       </main>
           <Footer />
         </Providers>
       </body>

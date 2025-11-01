@@ -63,7 +63,7 @@ function page() {
     href="/other-dowry" 
     className="text-white bg-pink-700 p-2 font-semibold hover:underline  rounded-md ml-2 transition"
   >
-    See Other Dowry Cards →
+   <button> See Other Dowry Cards </button>
   </Link>
 </div>
       <UnderstandDowryPractice />
