@@ -51,8 +51,7 @@ export default function QuestionForm() {
     setResponse(null);
 
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
+   
     try {
       const res = await fetch('/api/generate-response', {
         method: 'POST',
@@ -89,12 +88,15 @@ export default function QuestionForm() {
 
   if (loading) {
     return (
+       <div id="dowryform" className="max-w-5xl mt-6 bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
+
       <DowryCardSkeleton />
+      </div>
     )
   }
 
   return (
-    <div className="max-w-5xl  bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
+    <div id="dowryform" className="max-w-5xl mt-6 bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
 
       {response && (
         <div className='relative'>
@@ -103,7 +105,7 @@ export default function QuestionForm() {
             className="flex absolute left-2 md:left-0 top-0 cursor-pointer items-center gap-2 text-white bg-red-500 hover:bg-red-600 px-2.5 md:px-4 py-2 rounded-full md:rounded-lg mb-4"
           >
             <FaArrowLeft />
-           <span className='hidden md:block '> Go Back</span>
+           <span className='hidden md:block '> Generate Another</span>
           </button>
           <h2 className="text-3xl font-extrabold text-center text-pink-600 mb-6">
             {response ? 'Your Dowry' : 'Dowry Calculator'}

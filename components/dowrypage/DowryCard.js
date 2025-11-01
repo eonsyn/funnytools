@@ -5,7 +5,9 @@ import Image from 'next/image';
 import profile from '@/public/profile-placeholder.png'
 import { toPng } from 'html-to-image';
 import { QRCodeCanvas } from 'qrcode.react';
+import { IoMdDownload } from "react-icons/io";
 import Link from 'next/link';
+import { FaEye } from "react-icons/fa";
 const formatText = (text) => {
   if (!text) return null;
   text = text.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
@@ -117,16 +119,16 @@ export default function DowryCard({ clearResponse, profession, dowry, response, 
        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
   <button
     onClick={downloadCard}
-    className="flex-1 bg-green-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-green-600 transition-transform duration-200"
+    className=" cursor-pointer flex items-center justify-evenly bg-green-500 text-white px-4 gap-2 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-green-600 transition-transform duration-200"
   >
-    Download Card
+    <IoMdDownload /> Download
   </button>
 
   <Link
     href="/other-dowry"
-    className="flex-1 flex justify-center items-center bg-pink-500 text-white px-6 py-3 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-pink-600 transition-transform duration-200"
+    className="flex-1 flex justify-center items-center bg-pink-500 text-white px-6 py-3 gap-2 text-base font-semibold rounded-xl shadow-lg hover:scale-105 hover:bg-pink-600 transition-transform duration-200"
   >
-    View Other Dowry Cards
+    <FaEye /> Others Dowry Cards
   </Link>
 </div>
 

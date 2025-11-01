@@ -14,11 +14,6 @@ const faqList = [
       answer:
         "Absolutely! After getting your satirical dowry result, you can share it on WhatsApp or Facebook to spread the message (and laughter).",
     },
-    {
-      question: "Is any data stored or shared?",
-      answer:
-        "No personal data is stored or shared. Everything happens locally in your browser for privacy and fun.",
-    },
   ];
   
   const FaqCard = () => {

@@ -8,7 +8,9 @@ import people from '@/public/people.svg';
 import heroImage1 from '@/public/heroImage1.png';
 import heroImageC1 from '@/public/heroImageC1.png';
 import heroImage2 from '@/public/heroImage2.png'; 
-import heroImageC2 from '@/public/heroImageC2.png'
+import heroImageC2 from '@/public/heroImageC2.png';
+
+import Link from 'next/link';
 const images = [heroImageC1, heroImageC2,heroImageC1,heroImageC2 ];
 export default function ImageSection({closeModal}) {
   const firstText = useRef(null);
@@ -89,6 +91,7 @@ export default function ImageSection({closeModal}) {
                Let’s calculate the dowry and prove them wrong. Click below!</p>
              
             <div className="flex justify-center   items-center h-20  mt-6  ">
+              <Link href="#dowryform">
               <button
                 onClick={closeModal}
                 className="relative animate-bounce cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white   transition-all duration-300 ease-out rounded-2xl shadow-lg group px-20 md:px-8 md:py-3 py-6   md:text-lg text-xl shadow border border-black   bg-buttonhover   "
@@ -97,6 +100,7 @@ export default function ImageSection({closeModal}) {
                 <span className="relative z-10 transisition-all duration-300 ease-out group-hover:text-xl  text-white font-primary">Calculate Now</span>
               </button>
 
+                      </Link>
 
             </div>
           </div>

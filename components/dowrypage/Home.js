@@ -9,7 +9,7 @@ import HeaderComponent from './subpart/HeaderComponent';
 function Home({ closeModal }) {
 
   return (
-    <main className="flex w-screen  md:items-center justify-center md:min-h-[90vh] px-4 bg-gradient-to-b from-pink-100 via-pink-50 to-white">
+    <main className="flex w-screen  md:items-center justify-center md:min-h-[90vh] px-4 ">
       <div className="text-center max-w-2xl md:max-w-none md:w-[90%]
          h-full   w-full space-y-6">
         {/* Header */}

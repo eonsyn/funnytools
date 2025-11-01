@@ -2,11 +2,13 @@
 import React from 'react'
 import LandingPage from '@/components/dowrypage/LandingPage';
 import FaqCard from '@/components/dowrypage/FaqCard';
+import SchemaMarkup from "@/components/SchemaMarkup";
+import Link from 'next/link';
 import UnderstandDowryPractice from "@/components/dowrypage/UnderstandDowryPractice"
 export const metadata = {
-  title: "Dowry Calculator",
+  title: "DowryAi | AI Dowry Calculator & Prediction Tool",
   description:
-    "100% working dowry calculato",
+    "DowryAi uses advanced AI to calculate dowry expectations, compare cases, and analyze social patterns. Try the Dowry Calculator now for free! 100% working dowry calculator",
   keywords: [
     "dowry", "calculator", "Dowry Calculator Ai", "marriage", "wedding", "dowry system", "dahej pratha", "dahej calculator"
     ,
@@ -30,7 +32,7 @@ export const metadata = {
     siteName: "Dowry Calculator AI",
     images: [
       {
-        url: "https://dowryai.netlify.app/preview.jpg",
+        url: "https://dowryai.netlify.app/preview.png",
         width: 1200,
         height: 630,
         alt: "Dowry Calculator AI - Satirical Result Card",
@@ -43,7 +45,7 @@ export const metadata = {
     title: "Dowry Calculator Ai",
     description:
       "Mock the dowry system with a hilarious result card. Take the quiz, laugh, and raise awareness!",
-    images: ["https://dowryai.netlify.app/preview.jpg"],
+    images: ["https://dowryai.netlify.app/preview.png"],
   },
   metadataBase: new URL("https://dowryai.netlify.app"), // Replace with your domain
 };
@@ -52,9 +54,18 @@ function page() {
 
   return (
     <>
+      <SchemaMarkup />
       <LandingPage />
 
-
+ <div className="py-10 text-center bg-white text-gray-700">
+  🎁 Surprise! You can also check out what other people’s <strong>Dowry Cards</strong> look like  
+  <Link 
+    href="/other-dowry" 
+    className="text-white bg-pink-700 p-2 font-semibold hover:underline  rounded-md ml-2 transition"
+  >
+    See Other Dowry Cards →
+  </Link>
+</div>
       <UnderstandDowryPractice />
 
       <div className="max-w-5xl mx-auto text-center mb-10">
@@ -110,6 +121,9 @@ function page() {
           </p>
         </div>
       </div>
+
+     
+
       <div className='bg-gradient-to-b from-pink-100 via-pink-50 to-white'>
         <FaqCard />
       </div>

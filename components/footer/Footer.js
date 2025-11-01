@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { FaFacebookF, FaInstagram, FaLinkedinIn  } from 'react-icons/fa';
-
+import { CiGlobe } from "react-icons/ci";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white px-6 pt-14 pb-10">
@@ -39,23 +39,15 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-pink-300 mb-4">Connect with us</h3>
           <div className="flex gap-5 text-2xl">
             <a
-              href="https://facebook.com"
+              href="https://aryan0singh.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400 transition-transform duration-200 hover:scale-110"
               aria-label="Facebook"
             >
-              <FaFacebookF />
+              <CiGlobe />
             </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-pink-400 transition-transform duration-200 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
+            
             <a
               href="https://www.linkedin.com/in/aryansingh0 "
               target="_blank"
