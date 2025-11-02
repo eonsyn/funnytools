@@ -9,11 +9,11 @@ import HeaderComponent from './subpart/HeaderComponent';
 function Home({ closeModal }) {
 
   return (
-    <main className="flex w-screen  md:items-center justify-center md:min-h-[90vh] px-4 ">
+    <main className="flex w-screen  md:items-center justify-center  px-4 ">
       <div className="text-center max-w-2xl md:max-w-none md:w-[90%]
          h-full   w-full space-y-6">
         {/* Header */}
-        <HeaderComponent />
+       
         {/* Image gallery  */}
         <ImageSection closeModal={closeModal}/>
 

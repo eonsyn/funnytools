@@ -57,11 +57,11 @@ function page() {
       <SchemaMarkup />
       <LandingPage />
 
- <div className="py-10 text-center bg-white text-gray-700">
+ <div className="py-10 px-1 text-center bg-white text-gray-700">
   🎁 Surprise! You can also check out what other people’s <strong>Dowry Cards</strong> look like  
   <Link 
     href="/other-dowry" 
-    className="p-3"
+    className="p-3 "
   >
    <button className='text-white mt-2 md:mt-0 bg-pink-700 p-2 font-semibold hover:underline  rounded-md ml-2 transition'> See Other Dowry Cards </button>
   </Link>

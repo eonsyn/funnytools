@@ -1,120 +1,86 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import TrialInitializer from '@/components/TrialInitializer';
-import DowryButton from './DowryButton';
-import { useSelector } from 'react-redux';
-import { useTrialState } from '@/lib/redux/slices/trialSlice';
+import { FaHome, FaUserFriends, FaBars } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/public/logo.png';
-import { usePathname } from 'next/navigation';
 
 function Navbar() {
-  const pathname = usePathname(); 
-  const navpaths = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "People Dowry", path: "/other-dowry" },
-    { name: "Privacy", path: "/privacy" },
-  ];
-
-  const trial = useSelector(useTrialState);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  // Scroll logic
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      // hide navbar when scrolling down
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowNavbar(false);
-      } else {
-        setShowNavbar(true);
-      }
+      setShowNavbar(currentScrollY < lastScrollY || currentScrollY < 20);
       setLastScrollY(currentScrollY);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  let colorClass = 'text-green-600 shadow-inner bg-green-50';
-  let borderClass = 'border-green-300';
-  if (trial <= 0) {
-    colorClass = 'text-red-700 shadow-inner bg-red-50';
-    borderClass = 'border-red-300';
-  } else if (trial === 1 || trial === 2) {
-    colorClass = 'text-red-500 shadow-inner bg-red-100';
-    borderClass = 'border-red-200';
-  }
+  const navItems = [
+    { name: 'Home', path: '/', icon: <FaHome /> },
+    { name: 'People Dowry', path: '/other-dowry', icon: <FaUserFriends /> },
+  ];
 
   return (
     <nav
-      className={`w-full z-40 h-12 fixed top-0 bg-pink-100/70 backdrop-blur-md flex items-center justify-between px-4 md:px-6 transition-transform duration-300 ease-in-out ${
-        showNavbar ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      className={`fixed top-1 left-1/2 -translate-x-1/2 z-50 
+        transition-transform duration-300 ease-in-out 
+        ${showNavbar ? 'translate-y-0' : '-translate-y-20'}
+      `}
     >
-      {/* Logo */}
-      <div className="flex items-center min-w-[15%] font-semibold text-2xl text-pink-600 gap-2">
-        <Link className="flex items-center" href="/">
-          <Image src={Logo} height={30} width={30} alt="Logo" />
-          DowryAi
+      {/* Notch-style container */}
+      <div className="backdrop-blur-md bg-pink-100/80 shadow-lg rounded-3xl 
+          flex items-center justify-between gap-6 px-6 py-2 
+          border border-pink-200 w-fit mx-auto">
+        
+        {/* Logo (desktop only) */}
+        <Link href="/">
+          
+        <div className="flex items-center gap-2 ">
+          <Image src={Logo} className='hidden md:block' alt="Logo" width={28} height={28} />
+          <span className="font-semibold text-pink-600">DowryAi</span>
+        </div>
+
         </Link>
-      </div>
-
-      {/* Center navigation */}
-      <div className="w-[50%] h-full hidden md:flex items-center justify-evenly">
-        {navpaths.map((nav, index) => (
-          <div key={index}>
+        {/* Center Icons */}
+        <div className="flex items-center justify-center gap-6 text-pink-600 text-2xl">
+          {navItems.map((item, index) => (
             <Link
-              href={nav.path}
-              className="relative text-lg text-pink-600"
+              key={index}
+              href={item.path}
+              className={`transition-all hover:text-pink-800 ${
+                pathname === item.path ? 'text-pink-700 scale-110' : ''
+              }`}
             >
-              <span
-                className={`relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-pink-600 after:transition-all after:duration-300 ${
-                  pathname === nav.path
-                    ? 'after:w-full'
-                    : 'after:w-0 hover:after:w-full'
-                }`}
-              >
-                {nav.name}
-              </span>
+              {item.icon}
             </Link>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Mobile Menu Toggle */}
-      <div className="md:hidden flex items-center gap-1">
-        <button onClick={toggleMenu}>
-          {isMenuOpen ? (
-            <FaTimes className="text-2xl text-pink-600" />
-          ) : (
-            <FaBars className="text-2xl text-pink-600" />
-          )}
-        </button>
+        {/* Mobile Hamburger */}
+        
       </div>
 
       {/* Mobile Dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-14 left-0 w-full bg-pink-100 shadow-md py-4 flex flex-col items-center gap-3 z-50 md:hidden">
-          {navpaths.map((nav, i) => (
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 
+            bg-pink-100/95 rounded-2xl shadow-md py-3 px-4 flex gap-6 z-40 md:hidden">
+          {navItems.map((item, i) => (
             <Link
               key={i}
-              href={nav.path}
-              className="text-lg text-pink-600 hover:text-pink-800"
+              href={item.path}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-pink-600 text-2xl hover:text-pink-800"
             >
-              {nav.name}
+              {item.icon}
             </Link>
           ))}
-          <TrialInitializer>
-            <DowryButton />
-          </TrialInitializer>
         </div>
       )}
     </nav>

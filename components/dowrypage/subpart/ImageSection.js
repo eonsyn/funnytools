@@ -7,12 +7,12 @@ import headingicon from '@/public/headingicon.svg';
 import people from '@/public/people.svg';
 import heroImage1 from '@/public/heroImage1.png';
 import heroImageC1 from '@/public/heroImageC1.png';
-import heroImage2 from '@/public/heroImage2.png'; 
+import heroImage2 from '@/public/heroImage2.png';
 import heroImageC2 from '@/public/heroImageC2.png';
 
 import Link from 'next/link';
-const images = [heroImageC1, heroImageC2,heroImageC1,heroImageC2 ];
-export default function ImageSection({closeModal}) {
+const images = [heroImageC1, heroImageC2, heroImageC1, heroImageC2];
+export default function ImageSection({ closeModal }) {
   const firstText = useRef(null);
   const secondText = useRef(null);
   const slider = useRef(null);
@@ -47,7 +47,7 @@ export default function ImageSection({closeModal}) {
 
     // 🟢 FIXED: offset secondText to appear after firstText
     gsap.set(firstText.current, { xPercent: xPercent });
-    gsap.set(secondText.current, { xPercent: xPercent  });
+    gsap.set(secondText.current, { xPercent: xPercent });
 
     xPercent += 0.12 * direction;
     requestAnimationFrame(animation);
@@ -55,57 +55,52 @@ export default function ImageSection({closeModal}) {
 
   return (
     <div className='md:flex items-center   justify-between w-full md:h-[30vh]   '>
-          <div className="Imagesection relative overflow-hidden    w-full md:w-[60%] mask-fade hidden md:flex">
-            <div className=" h-full w-full ">
-              <div ref={slider} className="flex w-max relative h-full items-center whitespace-nowrap ">
-                
-                <div ref={firstText} className="flex items-center  h-full">
-                  {images.map((image, idx) => (
-                    <Image
-                      key={`first-${idx}`}
-                      alt="image"
-                      className="px-1 h-full w-auto object-contain  hover:grayscale transition-all duration-300"
-                      src={image}
-                    />
-                  ))}
-                </div>
-            
-                <div ref={secondText} className="flex items-center h-full">
-                  {images.map((image, idx) => (
-                    <Image
-                      key={`second-${idx}`}
-                      alt="image"
-                      className="px-1 h-full w-auto object-contain  hover:grayscale transition-all duration-300"
-                      src={image}
-                    />
-                  ))}
-                </div>
-            
-              </div>
+      <div className="Imagesection relative overflow-hidden    w-full md:w-[60%] mask-fade hidden md:flex">
+        <div className=" h-full w-full ">
+          <div ref={slider} className="flex w-max relative h-full items-center whitespace-nowrap ">
+
+            <div ref={firstText} className="flex items-center  h-full">
+              {images.map((image, idx) => (
+                <Image
+                  key={`first-${idx}`}
+                  alt="image"
+                  className="px-1 h-full w-auto object-contain  hover:grayscale transition-all duration-300"
+                  src={image}
+                />
+              ))}
             </div>
-          </div>
 
-          <div className="Descriptionsection  md:h-full py-6 md:py-3  w-full md:w-[35%]">
-            <p className='text-start pr-4 font-primary text-sm md:text-xl  md:leading-5 leading-8 '>
-              {/* Who said love has a price tag? <br /> */}
-               Let’s calculate the dowry and prove them wrong. Click below!</p>
-             
-            <div className="flex justify-center   items-center h-20  mt-6  ">
-              <Link href="#dowryform">
-              <button
-                onClick={closeModal}
-                className="relative animate-bounce cursor-pointer inline-flex items-center justify-center overflow-hidden font-semibold tracking-wide text-white   transition-all duration-300 ease-out rounded-2xl shadow-lg group px-20 md:px-8 md:py-3 py-6   md:text-lg text-xl shadow border border-black   bg-buttonhover   "
-              >
-                
-                <span className="relative z-10 transisition-all duration-300 ease-out group-hover:text-xl  text-white font-primary">Calculate Now</span>
-              </button>
-
-                      </Link>
-
+            <div ref={secondText} className="flex items-center h-full">
+              {images.map((image, idx) => (
+                <Image
+                  key={`second-${idx}`}
+                  alt="image"
+                  className="px-1 h-full w-auto object-contain  hover:grayscale transition-all duration-300"
+                  src={image}
+                />
+              ))}
             </div>
+
           </div>
-          
         </div>
+      </div>
+
+      <div className="  md:h-full pt-4 md:py-3 w-full md:w-[35%]">
+        <h1 className="animatedtext text-center   py-1  text-2xl font-extrabold  md:text-xl md:leading-5 leading-5">
+          Dowry Calculator AI
+        </h1>
+
+        <div className="h-fit md:h-20 mt-1">
+          <p className="relative text-start z-10 transition-all duration-300 ease-out group-hover:text-xl  font-primary  ">
+            Fill this form and Get a personalized dowry estimate fast, fun, and 100% free!
+          </p>
+
+
+        </div>
+      </div>
+
+
+    </div>
 
   );
 }

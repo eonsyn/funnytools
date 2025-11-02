@@ -28,11 +28,11 @@ export default function QuestionForm() {
     education: '',
     profession: '',
     maritalStatus: '',
-    carOwnership: '',
+    carOwnership: 'Yes',
     salary: '',
     location: '',
     skinTone: '',
-    govtJobInFamily: '',
+    govtJobInFamily: 'Yes',
     expectations: '',
   });
 

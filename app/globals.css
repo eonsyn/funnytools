@@ -63,3 +63,17 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.animatedtext {
+  background: linear-gradient(90deg, #ff007f, #ff8c00, #ff007f);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
+
