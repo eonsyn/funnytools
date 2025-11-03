@@ -87,7 +87,7 @@ export default function ImageSection({ closeModal }) {
 
       <div className="  md:h-full pt-4 md:py-3 w-full md:w-[35%]">
         <h1 className="animatedtext text-center   py-1  text-2xl font-extrabold  md:text-xl md:leading-5 leading-5">
-          Dowry Calculator AI
+          Dowry AI Calculator
         </h1>
 
         <div className="h-fit md:h-20 mt-1">

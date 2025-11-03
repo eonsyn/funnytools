@@ -10,11 +10,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 export default function QuestionForm() {
   const router = useRouter();
-  // useEffect(() => {
-  //   if (trial < 0 || trial===0) {
-  //     router.push('/get-balance');
-  //   }
-  // }, [ router]);
+
 
   const dispatch = useDispatch();
   const trial = useSelector(useTrialState);
@@ -34,24 +30,25 @@ export default function QuestionForm() {
     skinTone: '',
     govtJobInFamily: 'Yes',
     expectations: '',
+    aiLanguage: 'Hindi',
   });
 
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState(null);
- 
-  const [close,setClose]=useState(false)
+
+  const [close, setClose] = useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setResponse(null);
 
-    
-   
+
+
     try {
       const res = await fetch('/api/generate-response', {
         method: 'POST',
@@ -59,11 +56,11 @@ export default function QuestionForm() {
         body: JSON.stringify({ formData }),
       });
 
-      const json = await res.json(); 
-      setResponse(json);
-      console.log(json) 
+      const json = await res.json();
+      setResponse(json?.aiResponse);
+      console.log(json)
     } catch (error) {
-      console.error('Error generating response:', error); 
+      console.error('Error generating response:', error);
     } finally {
       setLoading(false);
 
@@ -88,9 +85,9 @@ export default function QuestionForm() {
 
   if (loading) {
     return (
-       <div id="dowryform" className="max-w-5xl mt-6 bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
+      <div id="dowryform" className="max-w-5xl mt-6 bg-pink-200  mx-auto md:p-6 border border-pink-200 rounded-2xl pb-6 relative">
 
-      <DowryCardSkeleton />
+        <DowryCardSkeleton />
       </div>
     )
   }
@@ -105,7 +102,7 @@ export default function QuestionForm() {
             className="flex absolute left-2 md:left-0 top-0 cursor-pointer items-center gap-2 text-white bg-red-500 hover:bg-red-600 px-2.5 md:px-4 py-2 rounded-full md:rounded-lg mb-4"
           >
             <FaArrowLeft />
-           <span className='hidden md:block '> Generate Another</span>
+            <span className='hidden md:block '> Generate Another</span>
           </button>
           <h2 className="text-3xl font-extrabold text-center text-pink-600 mb-6">
             {response ? 'Your Dowry' : 'Dowry Calculator'}
@@ -113,8 +110,7 @@ export default function QuestionForm() {
         </div>
 
       )}
-
-
+ 
 
       {/* Show generated result or form */}
       {response ? (
@@ -136,7 +132,7 @@ export default function QuestionForm() {
           </div>
 
           {/* Education */}
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 ">
             {/* Education */}
             <div className="flex-1">
               <label className="block font-semibold mb-1">Education</label>
@@ -173,6 +169,8 @@ export default function QuestionForm() {
                 <option>Divorced</option>
               </select>
             </div>
+
+
           </div>
 
 
@@ -225,19 +223,40 @@ export default function QuestionForm() {
             </div>
           </div>
 
+          <div className="flex space-x-6">
+            <div className="bg-red-5 flex-1">
+              <label className="block font-semibold mb-1">Location</label>
+              <input
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              />
+            </div>
+            <div className="flex-1 ">
+              <label className="block font-semibold mb-1">
+                AI Language
+              </label>
+              <select
+                name="aiLanguage"
+                value={formData.aiLanguage}
+                onChange={handleChange}
+                required
+                className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+              >
+                <option>
+                  Hindi
+                </option>
+                <option>
+                  English
+                </option>
+              </select>
 
-          {/* Location */}
-          <div className="bg-red-5">
-            <label className="block font-semibold mb-1">Location</label>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-              className="w-full p-3 border  border-pink-400 ring-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
-            />
+            </div>
           </div>
+
 
 
 
@@ -298,6 +317,8 @@ export default function QuestionForm() {
               rows="3"
             />
           </div>
+
+
 
           {/* Submit Button */}
           <div className="md:col-span-2 text-center mt-4">
