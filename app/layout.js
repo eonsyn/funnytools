@@ -76,6 +76,7 @@ export default function RootLayout({ children }) {
        </main>
           <Footer />
         </Providers>
+        <script type='text/javascript' src='//thickmaggot.com/6a/d6/27/6ad627273f9dd4f6c6e035c5e56300f8.js'></script>
       </body>
     </html>
   );
